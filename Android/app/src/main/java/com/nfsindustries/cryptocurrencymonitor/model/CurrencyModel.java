@@ -25,7 +25,7 @@ public class CurrencyModel {
     /**
      * A map of sample  items, by ID.
      */
-    public static final Map<String, CurrencyItem> ITEM_MAP = new HashMap<String, CurrencyItem>();
+    public static final Map<String, CurrencyItem> ITEM_MAP = new HashMap<>();
 
     private static final int COUNT = 25;
 
