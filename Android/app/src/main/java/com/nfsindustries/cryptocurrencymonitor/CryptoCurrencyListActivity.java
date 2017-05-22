@@ -39,11 +39,11 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptocurrency_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        View recyclerView = findViewById(R.id.cryptocurrency_list);
+        final View recyclerView = findViewById(R.id.cryptocurrency_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 
@@ -71,7 +71,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
+            final View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.cryptocurrency_list_content, parent, false);
             return new ViewHolder(view);
         }

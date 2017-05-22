@@ -19,11 +19,11 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptocurrency_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
         // Show the Up button in the action bar.
-        ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
@@ -40,10 +40,10 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
+            final Bundle arguments = new Bundle();
             arguments.putString(CryptoCurrencyDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(CryptoCurrencyDetailFragment.ARG_ITEM_ID));
-            CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
+            final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.cryptocurrency_detail_container, fragment)
@@ -53,7 +53,7 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        final int id = item.getItemId();
         if (id == android.R.id.home) {
             // This ID represents the Home or Up button. In the case of this
             // activity, the Up button is shown. For
