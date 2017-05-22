@@ -18,12 +18,12 @@ public class CurrencyModel {
  */
 
     /**
-     * An array of sample (dummy) items.
+     * An array of currency items.
      */
     public static final List<CurrencyItem> ITEMS = new ArrayList<CurrencyItem>();
 
     /**
-     * A map of sample  items, by ID.
+     * A map of currency items, by ID.
      */
     public static final Map<String, CurrencyItem> ITEM_MAP = new HashMap<>();
 
@@ -46,11 +46,9 @@ public class CurrencyModel {
     }
 
     private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
+        builder.append("\nMore details information here.");
         return builder.toString();
     }
 
