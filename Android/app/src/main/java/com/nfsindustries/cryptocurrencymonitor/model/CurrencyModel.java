@@ -42,7 +42,7 @@ public class CurrencyModel {
     }
 
     private static CurrencyItem createCurrencyItem(int position) {
-        return new CurrencyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new CurrencyItem(String.valueOf(position), "Item " + position, makeDetails(position), position * 10);
     }
 
     private static String makeDetails(int position) {
@@ -61,11 +61,13 @@ public class CurrencyModel {
         public final String id;
         public final String content;
         public final String details;
+        public final float last;
 
-        public CurrencyItem(String id, String content, String details) {
+        public CurrencyItem(String id, String content, String details, float last) {
             this.id = id;
             this.content = content;
             this.details = details;
+            this.last = last;
         }
 
         @Override
