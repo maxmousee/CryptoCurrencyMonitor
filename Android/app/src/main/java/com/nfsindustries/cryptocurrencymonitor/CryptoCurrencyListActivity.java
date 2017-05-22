@@ -14,8 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import com.nfsindustries.cryptocurrencymonitor.dummy.DummyContent;
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
 
 import java.util.List;
 
@@ -44,15 +43,6 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         View recyclerView = findViewById(R.id.cryptocurrency_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
@@ -67,15 +57,15 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(CurrencyModel.ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<CurrencyModel.CurrencyItem> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<CurrencyModel.CurrencyItem> items) {
             mValues = items;
         }
 
@@ -123,7 +113,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public DummyContent.DummyItem mItem;
+            public CurrencyModel.CurrencyItem mItem;
 
             public ViewHolder(View view) {
                 super(view);
