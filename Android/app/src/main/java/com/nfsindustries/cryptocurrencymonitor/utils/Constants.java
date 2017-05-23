@@ -11,12 +11,17 @@ public final class Constants {
      */
 
     /**
-     * URL to get price index for bitcoin
+     * Base URL for bitcoin
      */
-    public static final String BITCOIN_INDEX_BASE_URL = "https://blockchain.info/ticker";
+    public static final String BITCOIN_BASE_URL = "https://blockchain.info/";
 
     /**
-     * URL to convert bitcoin
+     * Path to convert bitcoin
      */
-    public static final String BITCOIN_CONVERT_BASE_URL = "https://blockchain.info/tobtc";
+    public static final String BITCOIN_CONVERT = "tobtc";
+
+    /**
+     * Path to convert bitcoin
+     */
+    public static final String BITCOIN_INDEX = "ticker";
 }
