@@ -42,14 +42,11 @@ public class CurrencyModel {
     }
 
     private static CurrencyItem createCurrencyItem(int position) {
-        return new CurrencyItem(String.valueOf(position), "Item " + position, makeDetails(position), position * 10);
+        return new CurrencyItem(String.valueOf(position), "CurrencyName", makeDetails(position), 1000, 1000, 999);
     }
 
     private static String makeDetails(int position) {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        builder.append("\nMore details information here.");
-        return builder.toString();
+        return "CurrencySymbol";
     }
 
     /**
@@ -57,20 +54,24 @@ public class CurrencyModel {
      */
     public static class CurrencyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public final String name;
+        public final String symbol;
         public final float last;
+        public final float sell;
+        public final float buy;
 
-        public CurrencyItem(String id, String content, String details, float last) {
+        public CurrencyItem(String id, String name, String symbol, float last, float sell, float buy) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.name = name;
+            this.symbol = symbol;
             this.last = last;
+            this.sell = sell;
+            this.buy = buy;
         }
 
         @Override
         public String toString() {
-            return content;
+            return name + " " + symbol;
         }
     }
 }

@@ -49,7 +49,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.name);
             }
         }
     }
@@ -59,9 +59,10 @@ public class CryptoCurrencyDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.cryptocurrency_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
+        // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.cryptocurrency_detail)).setText(mItem.details);
+            final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
+            cryptoDetailView.setText(mItem.symbol);
         }
 
         return rootView;
