@@ -24,4 +24,20 @@ public final class Constants {
      * Path to convert bitcoin
      */
     public static final String BITCOIN_INDEX = "ticker";
+
+    /**
+     * Bitcoin intent extra - to get details of bitcoin index
+     */
+    public static final String BITCOIN_EXTRA = "bitcoin";
+
+    /**
+     * Currency intent extra key - to get details of a given crypto currency index
+     */
+    public static final String CURRENCY_NAME_KEY = "currencyName";
+
+    /**
+     * The fragment argument representing the item ID that this fragment
+     * represents.
+     */
+    public static final String ARG_ITEM_ID = "item_id";
 }

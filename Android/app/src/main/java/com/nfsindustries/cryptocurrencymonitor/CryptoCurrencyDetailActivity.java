@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinService;
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
 /**
  * An activity representing a single CryptoCurrency detail screen. This
@@ -43,8 +44,8 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             final Bundle arguments = new Bundle();
-            arguments.putString(CryptoCurrencyDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(CryptoCurrencyDetailFragment.ARG_ITEM_ID));
+            arguments.putString(Constants.CURRENCY_NAME_KEY,
+                    getIntent().getStringExtra(Constants.CURRENCY_NAME_KEY));
             final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

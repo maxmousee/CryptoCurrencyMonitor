@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
-import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinService;
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
 import java.util.List;
 
@@ -89,7 +87,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (mTwoPane) {
                         final Bundle arguments = new Bundle();
-                        arguments.putString(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putString(Constants.ARG_ITEM_ID, holder.mItem.id);
                         final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -98,7 +96,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
                     } else {
                         final Context context = v.getContext();
                         final Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
-                        intent.putExtra(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(Constants.CURRENCY_NAME_KEY, Constants.BITCOIN_EXTRA);
 
                         context.startActivity(intent);
                     }

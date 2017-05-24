@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
@@ -18,11 +19,6 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
  * on handsets.
  */
 public class CryptoCurrencyDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
 
     /**
      * The dummy content this fragment is presenting.
@@ -40,11 +36,12 @@ public class CryptoCurrencyDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
+        if (getArguments().containsKey(Constants.CURRENCY_NAME_KEY)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = CurrencyModel.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            Object currencyKey = CurrencyModel.ITEM_MAP.keySet().toArray()[0];
+            mItem = CurrencyModel.ITEM_MAP.get(currencyKey);
 
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
