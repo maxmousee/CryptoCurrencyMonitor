@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinService;
 
 import java.util.List;
 
@@ -54,6 +55,10 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+
+        //TODO FINISH
+        BitcoinService bitcoinService = new BitcoinService();
+        bitcoinService.start();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
