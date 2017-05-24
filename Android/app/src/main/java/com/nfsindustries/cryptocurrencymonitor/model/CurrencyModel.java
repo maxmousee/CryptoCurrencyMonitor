@@ -27,7 +27,11 @@ public class CurrencyModel {
      */
     public static final Map<String, CurrencyItem> ITEM_MAP = new HashMap<>();
 
-    private static final int COUNT = 22;
+    private static final int COUNT = 1;
+
+    /**
+     * Only supporting bitcoin for first version
+     */
 
     static {
         // Add some sample items.
@@ -42,11 +46,11 @@ public class CurrencyModel {
     }
 
     private static CurrencyItem createCurrencyItem(int position) {
-        return new CurrencyItem(String.valueOf(position), "CurrencyName", makeDetails(position), 1000, 1000, 999);
+        return new CurrencyItem(String.valueOf(position), "CurrencyName", makeBitcoinDetails(position), 1000, 1000, 999);
     }
 
-    private static String makeDetails(int position) {
-        return "CurrencyIndex";
+    private static String makeBitcoinDetails(int position) {
+        return "Bitcoin";
     }
 
     /**

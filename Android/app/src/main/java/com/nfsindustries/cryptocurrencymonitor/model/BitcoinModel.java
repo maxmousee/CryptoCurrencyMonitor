@@ -34,7 +34,7 @@ public class BitcoinModel {
 
         @Override
         public String toString() {
-            return symbol + " " + last;
+            return id + " " + symbol + " " + last + " " + last15m + " " + buy + " " + sell;
         }
     }
 }
