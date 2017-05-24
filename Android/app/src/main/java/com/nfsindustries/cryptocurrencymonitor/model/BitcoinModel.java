@@ -15,13 +15,13 @@ public class BitcoinModel {
     /**
      * A currency item representing a piece of content.
      */
-    public static class BitcoinItem {
-        public final String id;
-        public final String last15m;
-        public final String symbol;
-        public final float last;
-        public final float sell;
-        public final float buy;
+    public class BitcoinItem {
+        private final String id;
+        private final String last15m;
+        private final String symbol;
+        private final float last;
+        private final float sell;
+        private final float buy;
 
         public BitcoinItem(String id, String last15m, String symbol, float last, float sell, float buy) {
             this.id = id;
@@ -30,6 +30,30 @@ public class BitcoinModel {
             this.last = last;
             this.sell = sell;
             this.buy = buy;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getLast15m() {
+            return last15m;
+        }
+
+        public String getSymbol() {
+            return symbol;
+        }
+
+        public float getLast() {
+            return last;
+        }
+
+        public float getSell() {
+            return sell;
+        }
+
+        public float getBuy() {
+            return buy;
         }
 
         @Override

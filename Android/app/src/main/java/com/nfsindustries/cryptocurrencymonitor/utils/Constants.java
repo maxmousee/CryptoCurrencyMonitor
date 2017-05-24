@@ -36,6 +36,11 @@ public final class Constants {
     public static final String CURRENCY_NAME_KEY = "currencyName";
 
     /**
+     * USA Dollar Currency Key
+     */
+    public static final String USD_KEY = "USD";
+
+    /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */

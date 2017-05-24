@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.nfsindustries.cryptocurrencymonitor.deserializer.BitcoinIndexDeserializer;
 import com.nfsindustries.cryptocurrencymonitor.model.BitcoinModel;
 import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
@@ -22,6 +23,7 @@ public class BitcoinService implements Callback<BitcoinModel> {
     public void start() {
         final Gson gson = new GsonBuilder()
                 .setLenient()
+                .registerTypeAdapter(BitcoinModel.class, new BitcoinIndexDeserializer())
                 .create();
 
         final Retrofit retrofit = new Retrofit.Builder()
