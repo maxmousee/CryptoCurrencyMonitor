@@ -58,6 +58,6 @@ public class BitcoinModel {
 
     @Override
     public String toString() {
-        return "1" + id + " to " + destinationCurrency + ": " + last;
+        return "1 " + id + " to " + destinationCurrency + ": " + last;
     }
 }

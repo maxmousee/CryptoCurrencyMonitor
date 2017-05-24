@@ -53,7 +53,7 @@ public final class Constants {
     /**
      * Bitcoin Last 15m Index Key
      */
-    public static final String LAST_15M_KEY = "last15m";
+    public static final String LAST_15M_KEY = "15m";
 
     /**
      * Currency Symbol Key

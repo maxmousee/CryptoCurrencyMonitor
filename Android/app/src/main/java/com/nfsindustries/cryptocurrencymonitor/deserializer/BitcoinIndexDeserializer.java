@@ -21,14 +21,14 @@ public class BitcoinIndexDeserializer implements JsonDeserializer<BitcoinModel> 
     public BitcoinModel deserialize(final JsonElement json, final Type typeOfT,
                                     final JsonDeserializationContext context)
             throws JsonParseException {
-        
+
         final JsonObject bitcoinIndexJsonObject =  json.getAsJsonObject();
         final JsonObject usdJsonObject = bitcoinIndexJsonObject.getAsJsonObject(Constants.USD_KEY);
         final float last15m = usdJsonObject.get(Constants.LAST_15M_KEY).getAsFloat();
         final float last = usdJsonObject.get(Constants.LAST_KEY).getAsFloat();
         final float buy = usdJsonObject.get(Constants.BUY_KEY).getAsFloat();
         final float sell = usdJsonObject.get(Constants.SELL_KEY).getAsFloat();
-        final String destinationSymbol = bitcoinIndexJsonObject.get(Constants.SYMBOL_KEY).getAsString();
+        final String destinationSymbol = usdJsonObject.get(Constants.SYMBOL_KEY).getAsString();
 
 
         final BitcoinModel bitcoin = new BitcoinModel(destinationSymbol, Constants.BTC_KEY, Constants.USD_KEY,
