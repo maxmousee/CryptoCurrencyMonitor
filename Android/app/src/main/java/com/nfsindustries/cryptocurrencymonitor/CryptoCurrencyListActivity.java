@@ -91,16 +91,16 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
-                        Bundle arguments = new Bundle();
+                        final Bundle arguments = new Bundle();
                         arguments.putString(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
+                        final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.cryptocurrency_detail_container, fragment)
                                 .commit();
                     } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
+                        final Context context = v.getContext();
+                        final Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
                         intent.putExtra(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
 
                         context.startActivity(intent);

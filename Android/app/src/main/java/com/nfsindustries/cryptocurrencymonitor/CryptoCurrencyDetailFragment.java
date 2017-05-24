@@ -49,7 +49,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.name);
+                appBarLayout.setTitle(mItem.symbol);
             }
         }
     }

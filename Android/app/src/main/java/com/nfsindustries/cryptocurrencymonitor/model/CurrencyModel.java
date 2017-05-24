@@ -27,7 +27,7 @@ public class CurrencyModel {
      */
     public static final Map<String, CurrencyItem> ITEM_MAP = new HashMap<>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 22;
 
     static {
         // Add some sample items.
@@ -46,7 +46,7 @@ public class CurrencyModel {
     }
 
     private static String makeDetails(int position) {
-        return "CurrencySymbol";
+        return "CurrencyIndex";
     }
 
     /**
