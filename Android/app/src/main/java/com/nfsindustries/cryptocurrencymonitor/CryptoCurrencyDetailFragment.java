@@ -40,7 +40,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            Object currencyKey = CurrencyModel.ITEM_MAP.keySet().toArray()[0];
+            final Object currencyKey = CurrencyModel.ITEM_MAP.keySet().toArray()[0];
             mItem = CurrencyModel.ITEM_MAP.get(currencyKey);
 
             final Activity activity = this.getActivity();
