@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".CryptoCurrencyListActivity"
-            android:label="@string/app_name"
+            android:label="@string/list_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

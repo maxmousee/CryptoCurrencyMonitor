@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Crypto Currency Monitor</string>
+    <string name="list_title">Crypto Currency List</string>
     <string name="title_cryptocurrency_detail">CryptoCurrency Detail</string>
 </resources>
