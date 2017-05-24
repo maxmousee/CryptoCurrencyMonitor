@@ -12,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
@@ -80,7 +81,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
+            holder.mLogoView.setImageResource(R.drawable.bitcoin_40);
             holder.mContentView.setText(mValues.get(position).symbol);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -112,14 +113,14 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
-            public final TextView mIdView;
+            public final ImageView mLogoView;
             public final TextView mContentView;
             public CurrencyModel.CurrencyItem mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
+                mLogoView = (ImageView) view.findViewById(R.id.currencyName);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
 
