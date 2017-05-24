@@ -15,11 +15,12 @@ public class BitcoinModelUnitTest {
 
     @Test
     public void init_isCorrect() throws Exception {
-        BitcoinModel bitcoinModel = new BitcoinModel("btc", "chf", 900, 910, 899, 901);
+        BitcoinModel bitcoinModel = new BitcoinModel("US$", "btc", "chf", 900, 910, 899, 901);
         assertEquals(bitcoinModel.getBuy(), 901, 0);
         assertEquals(bitcoinModel.getLast15m(), 900, 0);
         assertEquals(bitcoinModel.getLast(), 910, 0);
         assertEquals(bitcoinModel.getSell(), 899, 0);
         assertEquals(bitcoinModel.getDestinationCurrency(), "chf");
+        assertEquals(bitcoinModel.getDestinationSymbol(), "US$");
     }
 }

@@ -46,6 +46,31 @@ public final class Constants {
     public static final String BTC_KEY = "BTC";
 
     /**
+     * Bitcoin Last Index Key
+     */
+    public static final String LAST_KEY = "last";
+
+    /**
+     * Bitcoin Last 15m Index Key
+     */
+    public static final String LAST_15M_KEY = "last15m";
+
+    /**
+     * Currency Symbol Key
+     */
+    public static final String SYMBOL_KEY = "symbol";
+
+    /**
+     * Buy Key
+     */
+    public static final String BUY_KEY = "buy";
+
+    /**
+     * Sell Key
+     */
+    public static final String SELL_KEY = "sell";
+
+    /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */

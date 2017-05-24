@@ -8,6 +8,7 @@ public class BitcoinModel {
 
     private final String id;
     private final String destinationCurrency;
+    private final String destSymbol;
     private final float last15m;
     private final float last;
     private final float sell;
@@ -16,7 +17,7 @@ public class BitcoinModel {
     //private final boolean isGoingUp;
     //TODO ADD CURRENCY STATUS, if it is going up or down
 
-    public BitcoinModel(String id, String destinationCurrency, float last15m,
+    public BitcoinModel(String destSymbol, String id, String destinationCurrency, float last15m,
                         float last, float sell, float buy) {
         this.id = id;
         this.last15m = last15m;
@@ -24,6 +25,7 @@ public class BitcoinModel {
         this.last = last;
         this.sell = sell;
         this.buy = buy;
+        this.destSymbol = destSymbol;
     }
 
     public String getId() {
@@ -48,6 +50,10 @@ public class BitcoinModel {
 
     public float getBuy() {
         return buy;
+    }
+
+    public String getDestinationSymbol() {
+        return destSymbol;
     }
 
     @Override
