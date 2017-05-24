@@ -41,6 +41,7 @@ public class BitcoinService implements Callback<BitcoinModel> {
     public void onResponse(Call<BitcoinModel> call, Response<BitcoinModel> response) {
         if(response.isSuccessful()) {
             BitcoinModel currencyIndex = response.body();
+            //TODO RETURN OBJECT AND DISPLAY
             Log.d("RESPONSE", response.toString());
         } else {
             Log.e("BITCOIN_INDEX", response.toString());
