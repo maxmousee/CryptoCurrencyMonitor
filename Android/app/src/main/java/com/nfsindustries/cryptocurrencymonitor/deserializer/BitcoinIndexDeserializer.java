@@ -19,15 +19,14 @@ public class BitcoinIndexDeserializer implements JsonDeserializer<BitcoinModel> 
 
     @Override
     public BitcoinModel deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        final BitcoinModel bitcoin = new BitcoinModel();
-        final JsonObject repoJsonObject =  json.getAsJsonObject();
+        final BitcoinModel bitcoin = new BitcoinModel(Constants.BTC_KEY, Constants.USD_KEY, 1000, 1000, 1000, 1000);
+        final JsonObject bitcoinIndexJsonObject =  json.getAsJsonObject();
 
         /*
-        JsonObject repoJsonObject =  json.getAsJsonObject();
-        bitcoin.name = repoJsonObject.get(Constants.USD_KEY).getAsString();
-        githubRepo.url = repoJsonObject.get("url").getAsString();
+        bitcoin.name = bitcoinIndexJsonObject.get(Constants.USD_KEY).getAsString();
+        githubRepo.url = bitcoinIndexJsonObject.get("url").getAsString();
 
-        JsonElement ownerJsonElement = repoJsonObject.get("owner");
+        JsonElement ownerJsonElement = bitcoinIndexJsonObject.get("owner");
         JsonObject ownerJsonObject = ownerJsonElement.getAsJsonObject();
         bitcoin.owner = ownerJsonObject.get("login").getAsString();
         */

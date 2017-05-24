@@ -41,6 +41,11 @@ public final class Constants {
     public static final String USD_KEY = "USD";
 
     /**
+     * Bitcoin Currency Key
+     */
+    public static final String BTC_KEY = "BTC";
+
+    /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
