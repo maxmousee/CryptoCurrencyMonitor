@@ -13,6 +13,9 @@ public class BitcoinModel {
     private final float sell;
     private final float buy;
 
+    //private final boolean isGoingUp;
+    //TODO ADD CURRENCY STATUS, if it is going up or down
+
     public BitcoinModel(String id, String destinationCurrency, float last15m,
                         float last, float sell, float buy) {
         this.id = id;
@@ -49,6 +52,6 @@ public class BitcoinModel {
 
     @Override
     public String toString() {
-        return id + " " + destinationCurrency + " " + last + " " + last15m + " " + buy + " " + sell;
+        return "1" + id + " to " + destinationCurrency + ": " + last;
     }
 }
