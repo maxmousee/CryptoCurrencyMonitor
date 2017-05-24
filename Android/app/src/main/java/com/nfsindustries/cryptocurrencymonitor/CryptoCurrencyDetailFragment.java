@@ -59,7 +59,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
             final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-            cryptoDetailView.setText(mItem.symbol);
+            cryptoDetailView.setText("CURRENCY INDEX HERE");
         }
 
         return rootView;

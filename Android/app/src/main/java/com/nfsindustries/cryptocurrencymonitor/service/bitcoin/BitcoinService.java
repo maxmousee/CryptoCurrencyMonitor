@@ -32,7 +32,6 @@ public class BitcoinService implements Callback<BitcoinModel> {
                 .build();
 
         final BitcoinAPI bitcoinAPI = retrofit.create(BitcoinAPI.class);
-
         final Call<BitcoinModel> call = bitcoinAPI.getCurrentIndex();
         call.enqueue(this);
 
@@ -42,7 +41,6 @@ public class BitcoinService implements Callback<BitcoinModel> {
     public void onResponse(Call<BitcoinModel> call, Response<BitcoinModel> response) {
         if(response.isSuccessful()) {
             BitcoinModel currencyIndex = response.body();
-            Log.d("INDEX", currencyIndex.toString());
             Log.d("RESPONSE", response.toString());
         } else {
             Log.e("BITCOIN_INDEX", response.toString());
