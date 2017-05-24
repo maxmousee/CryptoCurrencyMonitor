@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
+import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinService;
+
 /**
  * An activity representing a single CryptoCurrency detail screen. This
  * activity is only used narrow width devices. On tablet-size devices,
@@ -49,6 +51,8 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
                     .add(R.id.cryptocurrency_detail_container, fragment)
                     .commit();
         }
+        final BitcoinService bitcoinService = new BitcoinService();
+        bitcoinService.start();
     }
 
     @Override

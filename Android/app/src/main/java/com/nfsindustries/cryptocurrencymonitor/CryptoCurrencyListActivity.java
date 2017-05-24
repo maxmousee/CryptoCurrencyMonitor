@@ -55,10 +55,6 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
-
-        //TODO FINISH
-        BitcoinService bitcoinService = new BitcoinService();
-        bitcoinService.start();
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
