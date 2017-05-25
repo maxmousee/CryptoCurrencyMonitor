@@ -49,7 +49,7 @@ public class BitcoinService implements Callback<BitcoinModel> {
     }
 
     @Override
-    public void onFailure(Call<BitcoinModel> call, Throwable t) {
-        t.printStackTrace();
+    public void onFailure(final Call<BitcoinModel> call, final Throwable throwable) {
+        throwable.printStackTrace();
     }
 }
