@@ -1,4 +1,3 @@
-
 package com.nfsindustries.cryptocurrencymonitor.bitcoin;
 
 import com.google.gson.annotations.Expose;
