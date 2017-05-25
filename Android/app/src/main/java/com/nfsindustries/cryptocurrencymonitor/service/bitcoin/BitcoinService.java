@@ -40,7 +40,7 @@ public class BitcoinService implements Callback<BitcoinModel> {
     @Override
     public void onResponse(Call<BitcoinModel> call, Response<BitcoinModel> response) {
         if(response.isSuccessful()) {
-            BitcoinModel currencyIndex = response.body();
+            final BitcoinModel currencyIndex = response.body();
             //TODO RETURN OBJECT AND DISPLAY
             Log.d("RESPONSE", response.toString());
         } else {
