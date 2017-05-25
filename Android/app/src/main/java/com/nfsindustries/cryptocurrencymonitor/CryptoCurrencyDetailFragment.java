@@ -9,8 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.nfsindustries.cryptocurrencymonitor.deserializer.BitcoinIndexDeserializer;
+import com.nfsindustries.cryptocurrencymonitor.model.BitcoinModel;
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinAPI;
 import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
@@ -58,8 +67,22 @@ public class CryptoCurrencyDetailFragment extends Fragment {
 
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
-            final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-            cryptoDetailView.setText("CURRENCY INDEX HERE");
+            final BitcoinAPI bitcoinService = BitcoinAPI.retrofit.create(BitcoinAPI.class);
+            final Call<BitcoinModel> call =
+                    bitcoinService.getCurrentIndex();
+
+            call.enqueue(new Callback<BitcoinModel>() {
+                @Override
+                public void onResponse(final Call<BitcoinModel> call, final Response<BitcoinModel> response) {
+                    final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
+                    cryptoDetailView.setText(response.body().toString());
+                }
+                @Override
+                public void onFailure(final Call<BitcoinModel> call, final Throwable throwable) {
+                    final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
+                    cryptoDetailView.setText("Something went wrong: " + throwable.getMessage());
+                }
+            });
         }
 
         return rootView;

@@ -6,8 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
-
-import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinService;
 import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
 /**
@@ -52,8 +50,6 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
                     .add(R.id.cryptocurrency_detail_container, fragment)
                     .commit();
         }
-        final BitcoinService bitcoinService = new BitcoinService();
-        bitcoinService.start();
     }
 
     @Override
