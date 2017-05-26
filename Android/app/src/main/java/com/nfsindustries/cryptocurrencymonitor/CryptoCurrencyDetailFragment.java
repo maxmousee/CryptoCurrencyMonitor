@@ -80,11 +80,11 @@ public class CryptoCurrencyDetailFragment extends Fragment {
                 @Override
                 public void onFailure(final Call<BitcoinModel> call, final Throwable throwable) {
                     final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-                    cryptoDetailView.setText("Something went wrong: " + throwable.getMessage());
+                    cryptoDetailView.setText("Something went wrong, please check your internet connection.");
+                    cryptoDetailView.setText("Error message: " + throwable.getMessage());
                 }
             });
         }
-
         return rootView;
     }
 }
