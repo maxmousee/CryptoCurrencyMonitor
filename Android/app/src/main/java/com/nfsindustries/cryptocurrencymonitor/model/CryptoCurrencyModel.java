@@ -171,6 +171,15 @@ public class CryptoCurrencyModel {
         displayStrBuilder.append("Last: ");
         displayStrBuilder.append(TextFormatter.formatCurrency(priceUsd));
         displayStrBuilder.append("\n\n");
+        displayStrBuilder.append("Change 1h: ");
+        displayStrBuilder.append(percentChange1h);
+        displayStrBuilder.append("%\n\n");
+        displayStrBuilder.append("Change 24h: ");
+        displayStrBuilder.append(percentChange24h);
+        displayStrBuilder.append("%\n\n");
+        displayStrBuilder.append("Change 7d: ");
+        displayStrBuilder.append(percentChange7d);
+        displayStrBuilder.append("%\n\n");
         return displayStrBuilder.toString();
     }
 
