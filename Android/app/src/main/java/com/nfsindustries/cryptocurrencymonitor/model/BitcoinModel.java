@@ -64,8 +64,19 @@ public class BitcoinModel {
         displayStrBuilder.append(id);
         displayStrBuilder.append(" to ");
         displayStrBuilder.append(destinationCurrency);
-        displayStrBuilder.append(": ");
+        displayStrBuilder.append("\n");
+        displayStrBuilder.append("Last: ");
         displayStrBuilder.append(TextFormatter.formatCurrency(last));
+        displayStrBuilder.append("\n");
+        displayStrBuilder.append("Buy: ");
+        displayStrBuilder.append(TextFormatter.formatCurrency(buy));
+        displayStrBuilder.append("\n");
+        displayStrBuilder.append("Sell: ");
+        displayStrBuilder.append(TextFormatter.formatCurrency(sell));
+        displayStrBuilder.append("\n");
+        displayStrBuilder.append("15 mins ago: ");
+        displayStrBuilder.append(TextFormatter.formatCurrency(last15m));
+        displayStrBuilder.append("\n");
         return displayStrBuilder.toString();
     }
 }
