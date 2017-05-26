@@ -12,6 +12,6 @@ public final class TextFormatter {
      * @return formatted String to display
      */
     public static final String formatCurrency(final float value) {
-        return String.format("%10.2f", value);
+        return String.format("%.2f", value);
     }
 }

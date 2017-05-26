@@ -1,6 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor;
-
-import com.nfsindustries.cryptocurrencymonitor.model.BitcoinModel;
+package com.nfsindustries.cryptocurrencymonitor.model;
 
 import org.junit.Test;
 
