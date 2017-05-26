@@ -16,6 +16,11 @@ public final class Constants {
     public static final String BITCOIN_BASE_URL = "https://blockchain.info/";
 
     /**
+     * Base URL for coin market cap
+     */
+    public static final String COIN_MARKETCAP_BASE_URL = "https://api.coinmarketcap.com/v1/ticker/";
+
+    /**
      * Path to convert bitcoin
      */
     public static final String BITCOIN_CONVERT = "tobtc";
@@ -28,7 +33,7 @@ public final class Constants {
     /**
      * Bitcoin intent extra - to get details of bitcoin index
      */
-    public static final String BITCOIN_EXTRA = "bitcoin";
+    public static final String BITCOIN = "bitcoin";
 
     /**
      * Currency intent extra key - to get details of a given crypto currency index
