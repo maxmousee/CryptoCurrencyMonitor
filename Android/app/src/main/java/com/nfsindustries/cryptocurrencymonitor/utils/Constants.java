@@ -13,7 +13,7 @@ public final class Constants {
     /**
      * Base URL for bitcoin
      */
-    public static final String BITCOIN_BASE_URL = "https://blockchain.info/";
+    public static final String BLOCKCHAIN_BASE_URL = "https://blockchain.info/";
 
     /**
      * Base URL for coin market cap

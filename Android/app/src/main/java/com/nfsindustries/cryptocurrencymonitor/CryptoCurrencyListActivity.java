@@ -96,7 +96,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
                     } else {
                         final Context context = v.getContext();
                         final Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
-                        intent.putExtra(Constants.CURRENCY_NAME_KEY, Constants.BITCOIN_EXTRA);
+                        intent.putExtra(Constants.CURRENCY_NAME_KEY, Constants.BITCOIN);
 
                         context.startActivity(intent);
                     }

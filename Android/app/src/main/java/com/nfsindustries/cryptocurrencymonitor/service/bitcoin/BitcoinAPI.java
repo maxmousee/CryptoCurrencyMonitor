@@ -17,14 +17,14 @@ import retrofit2.http.GET;
 
 public interface BitcoinAPI {
 
-    Gson gson = new GsonBuilder()
+    Gson blockchainGson = new GsonBuilder()
             .setLenient()
             .registerTypeAdapter(BitcoinModel.class, new BitcoinIndexDeserializer())
             .create();
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(Constants.BITCOIN_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+    Retrofit blockchainRetrofit = new Retrofit.Builder()
+            .baseUrl(Constants.BLOCKCHAIN_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(blockchainGson))
             .build();
 
     @GET(Constants.BITCOIN_INDEX)

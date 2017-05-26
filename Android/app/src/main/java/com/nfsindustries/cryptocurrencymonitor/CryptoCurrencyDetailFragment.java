@@ -67,7 +67,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
 
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
-            final BitcoinAPI bitcoinService = BitcoinAPI.retrofit.create(BitcoinAPI.class);
+            final BitcoinAPI bitcoinService = BitcoinAPI.blockchainRetrofit.create(BitcoinAPI.class);
             final Call<BitcoinModel> call =
                     bitcoinService.getCurrentIndex();
 
