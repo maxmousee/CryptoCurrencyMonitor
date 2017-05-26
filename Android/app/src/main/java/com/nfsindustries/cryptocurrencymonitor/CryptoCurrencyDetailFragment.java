@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CryptoCurrencyModel;
-import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
 import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinAPI;
 import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
@@ -29,7 +29,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private CurrencyModel.CurrencyItem mItem;
+    private CurrencyListItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -46,13 +46,12 @@ public class CryptoCurrencyDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            final Object currencyKey = CurrencyModel.ITEM_MAP.keySet().toArray()[0];
-            mItem = CurrencyModel.ITEM_MAP.get(currencyKey);
+            mItem = new CurrencyListItem("bitcoin", R.drawable.bitcoin_40);
 
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.symbol);
+                appBarLayout.setTitle(mItem.getName());
             }
         }
     }

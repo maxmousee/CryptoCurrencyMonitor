@@ -13,9 +13,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
 import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,6 +34,8 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+
+    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", R.drawable.bitcoin_40));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +60,15 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(CurrencyModel.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(CURRENCY_LIST_ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<CurrencyModel.CurrencyItem> mValues;
+        private final List<CurrencyListItem> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<CurrencyModel.CurrencyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<CurrencyListItem> items) {
             mValues = items;
         }
 
@@ -80,14 +83,14 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
             holder.mLogoView.setImageResource(R.drawable.bitcoin_40);
-            holder.mContentView.setText(mValues.get(position).symbol);
+            holder.mContentView.setText(mValues.get(position).getName());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         final Bundle arguments = new Bundle();
-                        arguments.putString(Constants.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putString(Constants.ARG_ITEM_ID, holder.mItem.getName());
                         final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -113,7 +116,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
             public final View mView;
             public final ImageView mLogoView;
             public final TextView mContentView;
-            public CurrencyModel.CurrencyItem mItem;
+            public CurrencyListItem mItem;
 
             public ViewHolder(View view) {
                 super(view);
