@@ -1,5 +1,7 @@
 package com.nfsindustries.cryptocurrencymonitor.model;
 
+import com.nfsindustries.cryptocurrencymonitor.utils.TextFormatter;
+
 /**
  * Created by maxmouse on 18/5/2017.
  */
@@ -63,7 +65,7 @@ public class BitcoinModel {
         displayStrBuilder.append(" to ");
         displayStrBuilder.append(destinationCurrency);
         displayStrBuilder.append(": ");
-        displayStrBuilder.append(String.format("%10.2f", last));
+        displayStrBuilder.append(TextFormatter.formatCurrency(last));
         return displayStrBuilder.toString();
     }
 }
