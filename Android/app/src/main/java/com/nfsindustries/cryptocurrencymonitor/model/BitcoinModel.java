@@ -58,6 +58,12 @@ public class BitcoinModel {
 
     @Override
     public String toString() {
-        return "1 " + id + " to " + destinationCurrency + ": " + String.format("%10.2f", last);
+        final StringBuilder displayStrBuilder = new StringBuilder("1 ");
+        displayStrBuilder.append(id);
+        displayStrBuilder.append(" to ");
+        displayStrBuilder.append(destinationCurrency);
+        displayStrBuilder.append(": ");
+        displayStrBuilder.append(String.format("%10.2f", last));
+        return displayStrBuilder.toString();
     }
 }
