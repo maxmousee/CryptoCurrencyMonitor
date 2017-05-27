@@ -7,18 +7,18 @@ package com.nfsindustries.cryptocurrencymonitor.model;
 public final class CurrencyListItem {
 
     private final String name;
-    private int logo;
+    private final String symbol;
 
     public String getName() {
         return name;
     }
 
-    public int getLogo() {
-        return logo;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public CurrencyListItem(final String name, final int logo) {
+    public CurrencyListItem(final String name, final String symbol) {
         this.name = name;
-        this.logo = logo;
+        this.symbol = symbol;
     }
 }

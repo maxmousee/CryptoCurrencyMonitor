@@ -46,7 +46,7 @@ public class CryptoCurrencyDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = new CurrencyListItem("bitcoin", R.drawable.bitcoin_40);
+            mItem = new CurrencyListItem("bitcoin", "BTC");
 
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);

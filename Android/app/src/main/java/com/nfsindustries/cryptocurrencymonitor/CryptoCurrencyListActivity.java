@@ -35,7 +35,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
 
-    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", R.drawable.bitcoin_40));
+    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", "BTC"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mLogoView.setImageResource(R.drawable.bitcoin_40);
+            holder.mSymbolView.setText(mValues.get(position).getSymbol());
             holder.mContentView.setText(mValues.get(position).getName());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -114,14 +114,14 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
-            public final ImageView mLogoView;
+            public final TextView mSymbolView;
             public final TextView mContentView;
             public CurrencyListItem mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mLogoView = (ImageView) view.findViewById(R.id.currencyName);
+                mSymbolView = (TextView) view.findViewById(R.id.currencySymbol);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
 
