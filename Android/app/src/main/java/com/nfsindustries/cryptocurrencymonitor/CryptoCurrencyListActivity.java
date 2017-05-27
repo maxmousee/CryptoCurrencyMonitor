@@ -38,6 +38,13 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
     private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", "BTC"),
             new CurrencyListItem("ethereum", "ETH"), new CurrencyListItem("ripple", "XRP"),
             new CurrencyListItem("ethereum-classic", "ETC"), new CurrencyListItem("litecoin", "LTC"),
+            new CurrencyListItem("nem", "NEM"), new CurrencyListItem("dash", "DASH"),
+            new CurrencyListItem("monero", "XMR"), new CurrencyListItem("bytecoin-bcn", "BCN"),
+            new CurrencyListItem("stellar", "XLM"), new CurrencyListItem("golem-network-tokens", "GNT"),
+            new CurrencyListItem("gamecredits", "GAME"), new CurrencyListItem("bitshares", "BTS"),
+            new CurrencyListItem("digixdao", "DGD"), new CurrencyListItem("lisk", "LSK"),
+            new CurrencyListItem("augur", "REP"), new CurrencyListItem("gnosis-gno", "GNO"),
+            new CurrencyListItem("stratis", "STRAT"), new CurrencyListItem("waves", "WAVES"),
             new CurrencyListItem("zcash", "ZEC"), new CurrencyListItem("dogecoin", "DOGE"));
 
     @Override
