@@ -11,12 +11,14 @@ import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CryptoCurrencyModel;
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
-import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinAPI;
-import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
+import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.CoinmarketCapAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_NAME_KEY;
+import static com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_SYMBOL_KEY;
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
@@ -42,11 +44,12 @@ public class CryptoCurrencyDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(Constants.CURRENCY_NAME_KEY)) {
+        if (getArguments().containsKey(CURRENCY_NAME_KEY) && getArguments().containsKey(CURRENCY_SYMBOL_KEY)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = new CurrencyListItem("bitcoin", "BTC");
+            mItem = new CurrencyListItem(getArguments().getString(CURRENCY_NAME_KEY),
+                    getArguments().getString(CURRENCY_SYMBOL_KEY));
 
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
@@ -63,9 +66,9 @@ public class CryptoCurrencyDetailFragment extends Fragment {
 
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
-            final BitcoinAPI bitcoinService = BitcoinAPI.retrofit.create(BitcoinAPI.class);
+            final CoinmarketCapAPI coinmarketCapService = CoinmarketCapAPI.retrofit.create(CoinmarketCapAPI.class);
             final Call<CryptoCurrencyModel> call =
-                    bitcoinService.getCurrentIndex();
+                    coinmarketCapService.getCurrentIndex(mItem.getName());
 
             call.enqueue(new Callback<CryptoCurrencyModel>() {
                 @Override

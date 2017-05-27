@@ -10,12 +10,13 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * Created by maxmo on 23/5/2017.
  */
 
-public interface BitcoinAPI {
+public interface CoinmarketCapAPI {
 
     Gson gson = new GsonBuilder()
             .setLenient()
@@ -27,6 +28,6 @@ public interface BitcoinAPI {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
 
-    @GET(Constants.BITCOIN + "?convert=USD")
-    Call<CryptoCurrencyModel> getCurrentIndex();
+    @GET("{cryptocurrency}?convert=USD")
+    Call<CryptoCurrencyModel> getCurrentIndex(@Path("cryptocurrency") String cryptocurrency);
 }

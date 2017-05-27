@@ -41,6 +41,11 @@ public final class Constants {
     public static final String CURRENCY_NAME_KEY = "currencyName";
 
     /**
+     * Currency intent extra key - to get details of a given crypto currency index
+     */
+    public static final String CURRENCY_SYMBOL_KEY = "currencySymbol";
+
+    /**
      * USA Dollar Currency Key
      */
     public static final String USD_KEY = "USD";

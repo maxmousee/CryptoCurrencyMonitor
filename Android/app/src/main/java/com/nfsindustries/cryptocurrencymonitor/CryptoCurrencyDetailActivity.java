@@ -44,6 +44,8 @@ public class CryptoCurrencyDetailActivity extends AppCompatActivity {
             final Bundle arguments = new Bundle();
             arguments.putString(Constants.CURRENCY_NAME_KEY,
                     getIntent().getStringExtra(Constants.CURRENCY_NAME_KEY));
+            arguments.putString(Constants.CURRENCY_SYMBOL_KEY,
+                    getIntent().getStringExtra(Constants.CURRENCY_SYMBOL_KEY));
             final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
