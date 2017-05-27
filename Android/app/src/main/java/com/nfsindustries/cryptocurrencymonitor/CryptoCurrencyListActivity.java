@@ -35,7 +35,10 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
 
-    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", "BTC"));
+    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", "BTC"),
+            new CurrencyListItem("ethereum", "ETH"), new CurrencyListItem("ripple", "XRP"),
+            new CurrencyListItem("ethereum-classic", "ETC"), new CurrencyListItem("litecoin", "LTC"),
+            new CurrencyListItem("zcash", "ZEC"), new CurrencyListItem("dogecoin", "DOGE"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
