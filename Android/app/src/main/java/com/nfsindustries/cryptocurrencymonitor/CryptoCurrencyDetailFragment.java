@@ -9,7 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.model.CryptoCurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
+import com.nfsindustries.cryptocurrencymonitor.service.bitcoin.BitcoinAPI;
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
@@ -18,16 +25,11 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
  * on handsets.
  */
 public class CryptoCurrencyDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
 
     /**
      * The dummy content this fragment is presenting.
      */
-    private CurrencyModel.CurrencyItem mItem;
+    private CurrencyListItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -40,16 +42,16 @@ public class CryptoCurrencyDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
+        if (getArguments().containsKey(Constants.CURRENCY_NAME_KEY)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = CurrencyModel.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = new CurrencyListItem("bitcoin", R.drawable.bitcoin_40);
 
             final Activity activity = this.getActivity();
             final CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.name);
+                appBarLayout.setTitle(mItem.getName());
             }
         }
     }
@@ -61,10 +63,24 @@ public class CryptoCurrencyDetailFragment extends Fragment {
 
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
-            final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-            cryptoDetailView.setText(mItem.symbol);
-        }
+            final BitcoinAPI bitcoinService = BitcoinAPI.retrofit.create(BitcoinAPI.class);
+            final Call<CryptoCurrencyModel> call =
+                    bitcoinService.getCurrentIndex();
 
+            call.enqueue(new Callback<CryptoCurrencyModel>() {
+                @Override
+                public void onResponse(final Call<CryptoCurrencyModel> call, final Response<CryptoCurrencyModel> response) {
+                    final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
+                    cryptoDetailView.setText(response.body().toString());
+                }
+                @Override
+                public void onFailure(final Call<CryptoCurrencyModel> call, final Throwable throwable) {
+                    final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
+                    cryptoDetailView.setText("Something went wrong, please check your internet connection.");
+                    cryptoDetailView.setText("Error message: " + throwable.getMessage());
+                }
+            });
+        }
         return rootView;
     }
 }

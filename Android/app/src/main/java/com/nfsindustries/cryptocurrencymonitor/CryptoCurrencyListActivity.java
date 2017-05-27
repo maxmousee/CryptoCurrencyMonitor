@@ -7,15 +7,16 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nfsindustries.cryptocurrencymonitor.model.CurrencyModel;
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,6 +34,8 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+
+    private static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", R.drawable.bitcoin_40));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +60,15 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(CurrencyModel.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(CURRENCY_LIST_ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<CurrencyModel.CurrencyItem> mValues;
+        private final List<CurrencyListItem> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<CurrencyModel.CurrencyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<CurrencyListItem> items) {
             mValues = items;
         }
 
@@ -79,24 +82,24 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).symbol);
+            holder.mLogoView.setImageResource(R.drawable.bitcoin_40);
+            holder.mContentView.setText(mValues.get(position).getName());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putString(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
+                        final Bundle arguments = new Bundle();
+                        arguments.putString(Constants.ARG_ITEM_ID, holder.mItem.getName());
+                        final CryptoCurrencyDetailFragment fragment = new CryptoCurrencyDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.cryptocurrency_detail_container, fragment)
                                 .commit();
                     } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
-                        intent.putExtra(CryptoCurrencyDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        final Context context = v.getContext();
+                        final Intent intent = new Intent(context, CryptoCurrencyDetailActivity.class);
+                        intent.putExtra(Constants.CURRENCY_NAME_KEY, Constants.BITCOIN);
 
                         context.startActivity(intent);
                     }
@@ -111,14 +114,14 @@ public class CryptoCurrencyListActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
-            public final TextView mIdView;
+            public final ImageView mLogoView;
             public final TextView mContentView;
-            public CurrencyModel.CurrencyItem mItem;
+            public CurrencyListItem mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
+                mLogoView = (ImageView) view.findViewById(R.id.currencyName);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
 
