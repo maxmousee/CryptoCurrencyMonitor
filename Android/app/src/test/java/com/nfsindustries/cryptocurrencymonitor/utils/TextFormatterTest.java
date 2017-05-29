@@ -1,5 +1,7 @@
 package com.nfsindustries.cryptocurrencymonitor.utils;
 
+import com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.TextFormatter;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

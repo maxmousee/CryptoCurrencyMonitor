@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
-import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
+import com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.Constants;
 
 import java.util.Arrays;
 import java.util.List;

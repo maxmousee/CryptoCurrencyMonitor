@@ -1,4 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor.utils;
+package com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

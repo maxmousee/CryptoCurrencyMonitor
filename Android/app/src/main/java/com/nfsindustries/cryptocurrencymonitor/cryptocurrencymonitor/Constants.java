@@ -1,4 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor.utils;
+package com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor;
 
 /**
  * Created by maxmo on 22/5/2017.

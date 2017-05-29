@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
-import com.nfsindustries.cryptocurrencymonitor.utils.Constants;
+import com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.Constants;
 
 /**
  * An activity representing a single CryptoCurrency detail screen. This

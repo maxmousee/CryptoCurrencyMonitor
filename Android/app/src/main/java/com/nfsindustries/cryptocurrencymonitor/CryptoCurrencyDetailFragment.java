@@ -18,8 +18,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_NAME_KEY;
-import static com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_SYMBOL_KEY;
+import static com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.Constants.CURRENCY_NAME_KEY;
+import static com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.Constants.CURRENCY_SYMBOL_KEY;
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
