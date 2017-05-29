@@ -6,7 +6,7 @@ Free, opensource.
 
 Android version:
 Uses Java, retrofit2, available for 4.4 or newer versions.
-Release date: TBD
+https://play.google.com/store/apps/details?id=com.nfsindustries.cryptocurrencymonitor
 
 iOS version:
 Using Swift.
