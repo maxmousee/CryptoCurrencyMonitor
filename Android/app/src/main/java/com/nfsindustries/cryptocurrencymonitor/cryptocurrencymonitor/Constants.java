@@ -1,5 +1,10 @@
 package com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor;
 
+import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem;
+
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by maxmo on 22/5/2017.
  */
@@ -7,18 +12,34 @@ package com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor;
 public final class Constants {
 
     /**
-     * For more information about blockchain API, check https://blockchain.info/api/exchange_rates_api
+     * List of available cryptocurrencies
      */
+    public static final List<CurrencyListItem> CURRENCY_LIST_ITEMS = Arrays.asList(new CurrencyListItem("bitcoin", "BTC"),
+            new CurrencyListItem("zcash", "ZEC"), new CurrencyListItem("dogecoin", "DOGE"),
+            new CurrencyListItem("ethereum", "ETH"), new CurrencyListItem("ripple", "XRP"),
+            new CurrencyListItem("ethereum-classic", "ETC"), new CurrencyListItem("litecoin", "LTC"),
+            new CurrencyListItem("nem", "NEM"), new CurrencyListItem("dash", "DASH"),
+            new CurrencyListItem("monero", "XMR"), new CurrencyListItem("bytecoin-bcn", "BCN"),
+            new CurrencyListItem("stellar", "XLM"), new CurrencyListItem("golem-network-tokens", "GNT"),
+            new CurrencyListItem("gamecredits", "GAME"), new CurrencyListItem("bitshares", "BTS"),
+            new CurrencyListItem("digixdao", "DGD"), new CurrencyListItem("lisk", "LSK"),
+            new CurrencyListItem("augur", "REP"), new CurrencyListItem("gnosis-gno", "GNO"),
+            new CurrencyListItem("stratis", "STRAT"), new CurrencyListItem("waves", "WAVES"),
+            new CurrencyListItem("maidsafecoin", "MAID"), new CurrencyListItem("digibyte", "DGB"),
+            new CurrencyListItem("factom", "FCT"), new CurrencyListItem("bitconnect", "BCC"),
+            new CurrencyListItem("ardor", "ARDR"), new CurrencyListItem("decred", "DCR"),
+            new CurrencyListItem("iconomi", "ICN"), new CurrencyListItem("singulardtv", "SNGLS"),
+            new CurrencyListItem("steem", "STEEM"), new CurrencyListItem("siacoin", "SC"));
 
     /**
-     * Base URL for bitcoin
+     * Cache size
      */
-    public static final String BLOCKCHAIN_BASE_URL = "https://blockchain.info/";
+    public static final long CACHE_SIZE = 10 * 1024 * 1024; // 10 MiB
 
     /**
      * Base URL for coin market cap
      */
-    public static final String COIN_MARKETCAP_BASE_URL = "https://api.coinmarketcap.com/v1/ticker/";
+    public static final String COIN_MARKETCAP_BASE_URL = "https://api.coinmarketcap.com/v1/";
 
     /**
      * Path to convert bitcoin
@@ -28,7 +49,7 @@ public final class Constants {
     /**
      * Path to convert bitcoin
      */
-    public static final String BITCOIN_INDEX = "ticker";
+    public static final String TICKER = "ticker";
 
     /**
      * Bitcoin intent extra - to get details of bitcoin index
@@ -44,41 +65,6 @@ public final class Constants {
      * Currency intent extra key - to get details of a given crypto currency index
      */
     public static final String CURRENCY_SYMBOL_KEY = "currencySymbol";
-
-    /**
-     * USA Dollar Currency Key
-     */
-    public static final String USD_KEY = "USD";
-
-    /**
-     * Bitcoin Currency Key
-     */
-    public static final String BTC_KEY = "BTC";
-
-    /**
-     * Bitcoin Last Index Key
-     */
-    public static final String LAST_KEY = "last";
-
-    /**
-     * Bitcoin Last 15m Index Key
-     */
-    public static final String LAST_15M_KEY = "15m";
-
-    /**
-     * Currency Symbol Key
-     */
-    public static final String SYMBOL_KEY = "symbol";
-
-    /**
-     * Buy Key
-     */
-    public static final String BUY_KEY = "buy";
-
-    /**
-     * Sell Key
-     */
-    public static final String SELL_KEY = "sell";
 
     /**
      * The fragment argument representing the item ID that this fragment

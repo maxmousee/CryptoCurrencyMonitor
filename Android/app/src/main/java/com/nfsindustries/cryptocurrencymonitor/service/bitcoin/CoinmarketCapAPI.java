@@ -27,8 +27,7 @@ import retrofit2.http.Path;
 public interface CoinmarketCapAPI {
 
     Context context = CryptoCurrencyMonitor.getAppContext();
-    long SIZE_OF_CACHE = 10 * 1024 * 1024; // 10 MiB
-    Cache cache = new Cache(new File(context.getCacheDir(), "http"), SIZE_OF_CACHE);
+    Cache cache = new Cache(new File(context.getCacheDir(), "http"), Constants.CACHE_SIZE);
     CachingControlInterceptor networkInterceptor = new CachingControlInterceptor();
 
     OkHttpClient client = new OkHttpClient.Builder().cache(cache).addNetworkInterceptor(networkInterceptor).build();
@@ -39,7 +38,7 @@ public interface CoinmarketCapAPI {
             .create();
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(Constants.COIN_MARKETCAP_BASE_URL)
+            .baseUrl(Constants.COIN_MARKETCAP_BASE_URL + Constants.TICKER + "/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
