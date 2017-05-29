@@ -5,6 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyMonitor;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -16,11 +18,7 @@ import okhttp3.Response;
  */
 
 public class CachingControlInterceptor implements Interceptor {
-    Context context = null;
-
-    public void setContext(final Context context) {
-        this.context = context;
-    }
+    final Context context = CryptoCurrencyMonitor.getAppContext();
 
     @Override
     public Response intercept(final Chain chain) throws IOException {

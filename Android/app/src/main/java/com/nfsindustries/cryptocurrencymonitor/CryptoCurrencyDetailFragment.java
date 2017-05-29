@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,13 +75,20 @@ public class CryptoCurrencyDetailFragment extends Fragment {
                 @Override
                 public void onResponse(final Call<CryptoCurrencyModel> call, final Response<CryptoCurrencyModel> response) {
                     final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-                    cryptoDetailView.setText(response.body().toString());
+                    try {
+                        cryptoDetailView.setText(response.body().toString());
+                    } catch (NullPointerException exc) {
+                        Log.e("GETTING_RESPONSE", exc.toString());
+                        cryptoDetailView.setText("ERROR GETTING RESPONSE FROM SERVER");
+                    }
+
                 }
                 @Override
                 public void onFailure(final Call<CryptoCurrencyModel> call, final Throwable throwable) {
                     final TextView cryptoDetailView = ((TextView) rootView.findViewById(R.id.cryptocurrency_detail));
-                    cryptoDetailView.setText("Something went wrong, please check your internet connection.");
-                    cryptoDetailView.setText("Error message: " + throwable.getMessage());
+                    final String errorMsg = "Something went wrong, please check your internet connection." + "\n" +
+                            "Error message: " + throwable.getMessage();
+                    cryptoDetailView.setText(errorMsg);
                 }
             });
         }
