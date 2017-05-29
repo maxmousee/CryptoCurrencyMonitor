@@ -39,7 +39,6 @@ public class CachingControlInterceptor implements Interceptor {
         // Add Cache Control only for GET methods
         if (request.method().equals("GET")) {
             if (isConnected) {
-                // 1 day
                 request = request.newBuilder()
                         .header("Cache-Control", "only-if-cached")
                         .build();
@@ -53,7 +52,7 @@ public class CachingControlInterceptor implements Interceptor {
 
         final Response originalResponse = chain.proceed(request);
         return originalResponse.newBuilder()
-                .header("Cache-Control", "max-age=600")
+                .header("Cache-Control", "max-age=900")
                 .build();
     }
 }
