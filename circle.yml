@@ -2,6 +2,14 @@
 # Build configuration for Circle CI
 #
 
+machine:
+    environment:
+
+dependencies:
+    override:
+        - chmod +x Android/gradlew
+        - ./Android/gradlew dependencies 
+
 test:
   override:
     # start the emulator
