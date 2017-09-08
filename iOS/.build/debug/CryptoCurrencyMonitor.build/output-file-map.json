@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/master.swiftdeps"
+  },
+  "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CryptoCurrencyMonitor/CurrencyService.swift": {
+    "dependencies": "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.d",
+    "object": "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swift.o",
+    "swiftmodule": "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService~partial.swiftmodule",
+    "swift-dependencies": "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swiftdeps"
+  }
+}
