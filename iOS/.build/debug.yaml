@@ -2,23 +2,46 @@ client:
   name: swift-build
 tools: {}
 targets:
-  "test": ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.swiftmodule"]
-  "main": ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.swiftmodule"]
+  "test": ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.swiftmodule","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build/TestCurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.swiftmodule","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServicePackageTests.xctest"]
+  "main": ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.swiftmodule"]
 default: "main"
 commands: 
-  "<CryptoCurrencyMonitor.module>":
+  "<CurrencyService.module>":
     tool: swift-compiler
     executable: "/home/osboxes/apps/swift-3.1.1-RELEASE-ubuntu16.04/usr/bin/swiftc"
-    module-name: "CryptoCurrencyMonitor"
-    module-output-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.swiftmodule"
-    inputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CryptoCurrencyMonitor/CurrencyService.swift"]
-    outputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.swiftmodule"]
+    module-name: "CurrencyService"
+    module-output-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.swiftmodule"
+    inputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CurrencyService/Constants.swift","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CurrencyService/CurrencyService.swift"]
+    outputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.swiftmodule"]
     import-paths: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug"]
-    temps-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build"
-    objects: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CryptoCurrencyMonitor.build/CurrencyService.swift.o"]
+    temps-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build"
+    objects: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o"]
     other-args: ["-j8","-D","SWIFT_PACKAGE","-Onone","-g","-enable-testing","-module-cache-path","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/ModuleCache"]
-    sources: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CryptoCurrencyMonitor/CurrencyService.swift"]
+    sources: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CurrencyService/Constants.swift","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CurrencyService/CurrencyService.swift"]
     is-library: true
     enable-whole-module-optimization: false
     num-threads: "8"
+
+  "<CurrencyServiceTests.module>":
+    tool: swift-compiler
+    executable: "/home/osboxes/apps/swift-3.1.1-RELEASE-ubuntu16.04/usr/bin/swiftc"
+    module-name: "CurrencyServiceTests"
+    module-output-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.swiftmodule"
+    inputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.swiftmodule","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Tests/CurrencyServiceTests/TestCurrencyService.swift"]
+    outputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build/TestCurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.swiftmodule"]
+    import-paths: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug"]
+    temps-path: "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build"
+    objects: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build/TestCurrencyService.swift.o"]
+    other-args: ["-j8","-D","SWIFT_PACKAGE","-Onone","-g","-enable-testing","-module-cache-path","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/ModuleCache"]
+    sources: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Tests/CurrencyServiceTests/TestCurrencyService.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "8"
+
+  "<CurrencyServicePackageTests.test>":
+    tool: shell
+    description: "Linking ./.build/debug/CurrencyServicePackageTests.xctest"
+    inputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build/TestCurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o"]
+    outputs: ["/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServicePackageTests.xctest"]
+    args: ["/home/osboxes/apps/swift-3.1.1-RELEASE-ubuntu16.04/usr/bin/swiftc","-Xlinker","-rpath=$ORIGIN","-g","-L/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug","-o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServicePackageTests.xctest","-module-name","CurrencyServicePackageTests","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Tests/LinuxMain.swift","-emit-executable","-I","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyServiceTests.build/TestCurrencyService.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/Constants.swift.o","/home/osboxes/repo/CryptoCurrencyMonitor/iOS/.build/debug/CurrencyService.build/CurrencyService.swift.o"]
 
