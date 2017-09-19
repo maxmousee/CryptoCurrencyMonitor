@@ -3,15 +3,16 @@ package com.nfsindustries.cryptocurrencymonitor
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 
 /**
+ * Global constants
  * Created by MaxMouse on 9/18/17.
  */
 
 object Constants {
 
     /**
-     * List of available cryptocurrencies
+     * List of available Crypto Currencies
      */
-    val CURR_ITEMS = arrayOf<CurrencyListItem>(CurrencyListItem("bitcoin", "bitcoin"),
+    val CURR_ITEMS = listOf<CurrencyListItem>(CurrencyListItem("bitcoin", "bitcoin"),
             CurrencyListItem("zcash", "ZEC"), CurrencyListItem("dogecoin", "DOGE"),
             CurrencyListItem("ethereum", "ETH"), CurrencyListItem("ripple", "XRP"),
             CurrencyListItem("ethereum-classic", "ETC"), CurrencyListItem("litecoin", "LTC"),
