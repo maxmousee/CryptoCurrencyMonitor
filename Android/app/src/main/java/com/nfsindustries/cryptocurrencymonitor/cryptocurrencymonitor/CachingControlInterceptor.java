@@ -14,7 +14,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by maxmo on 29/5/2017.
+ * Controls network cache for REST calls
  */
 
 public class CachingControlInterceptor implements Interceptor {
