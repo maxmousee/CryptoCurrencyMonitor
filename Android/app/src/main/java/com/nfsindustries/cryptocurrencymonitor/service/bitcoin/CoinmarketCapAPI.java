@@ -21,7 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /**
- * Created by maxmo on 23/5/2017.
+ * Interface to get cryptocurrency data from CoinMarket API.
  */
 
 public interface CoinmarketCapAPI {
