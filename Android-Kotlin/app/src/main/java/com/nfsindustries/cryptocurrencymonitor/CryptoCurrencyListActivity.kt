@@ -20,7 +20,7 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
  * item details side-by-side using two vertical panes.
  */
 
-class CryptoCurrencyList : AppCompatActivity() {
+class CryptoCurrencyListActivity : AppCompatActivity() {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
