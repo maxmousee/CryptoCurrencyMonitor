@@ -19,7 +19,6 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-
 class CryptoCurrencyListActivity : AppCompatActivity() {
 
     /**
@@ -70,21 +69,21 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
                 if (mTwoPane) {
                     val arguments = Bundle()
                     arguments.putString(Constants.ARG_ITEM_ID, holder.mItem!!.name)
-                    /*
+
                     val fragment = CryptoCurrencyDetailFragment()
                     fragment.setArguments(arguments)
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.cryptocurrency_detail_container, fragment)
                             .commit()
-                            */
+
                 } else {
                     val context = v.context
-                    /*
+
                     val intent = Intent(context, CryptoCurrencyDetailActivity::class.java)
                     intent.putExtra(Constants.CURRENCY_NAME_KEY, holder.mItem!!.name)
                     intent.putExtra(Constants.CURRENCY_SYMBOL_KEY, holder.mItem!!.symbol)
                     context.startActivity(intent)
-                    */
+
                 }
             }
         }
