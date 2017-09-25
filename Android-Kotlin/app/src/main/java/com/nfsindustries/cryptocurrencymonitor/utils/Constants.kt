@@ -27,6 +27,11 @@ object Constants {
             CurrencyListItem("factom", "FCT"), CurrencyListItem("bitconnect", "BCC"),
             CurrencyListItem("ardor", "ARDR"), CurrencyListItem("decred", "DCR"),
             CurrencyListItem("iconomi", "ICN"), CurrencyListItem("singulardtv", "SNGLS"),
+            CurrencyListItem("omisego", "OMG"), CurrencyListItem("bitconnect", "BCC"),
+            CurrencyListItem("qtum", "QTUM"), CurrencyListItem("tether", "USDT"),
+            CurrencyListItem("ark", "ARK"), CurrencyListItem("tenx", "PAY"),
+            CurrencyListItem("komodo", "KMD"), CurrencyListItem("hshare", "HSR"),
+            CurrencyListItem("veritaseum", "VERI"), CurrencyListItem("bitcoindark", "BTCD"),
             CurrencyListItem("steem", "STEEM"), CurrencyListItem("siacoin", "SC"))
 
     /**
