@@ -26,7 +26,7 @@ class CryptoCurrencyModel {
     var priceBtc: Float = 0.toFloat()
     @SerializedName("24h_volume_usd")
     @Expose
-    var _24hVolumeUsd:Float = 0.toFloat()
+    var volumeUsd24h:Float = 0.toFloat()
     @SerializedName("market_cap_usd")
     @Expose
     var marketCapUsd: Float = 0.toFloat()
