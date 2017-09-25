@@ -4,9 +4,8 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 
 /**
  * Global constants
- * Created by MaxMouse on 9/18/17.
+ * Created by MaxMouse on 18/9/2017.
  */
-
 object Constants {
 
     /**
