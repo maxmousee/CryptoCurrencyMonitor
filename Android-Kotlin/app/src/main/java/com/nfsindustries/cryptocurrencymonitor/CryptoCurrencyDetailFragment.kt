@@ -1,6 +1,5 @@
 package com.nfsindustries.cryptocurrencymonitor
 
-import android.app.Activity
 import android.support.design.widget.CollapsingToolbarLayout
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,8 +16,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-import com.nfsindustries.cryptocurrencymonitor.Constants.CURRENCY_NAME_KEY
-import com.nfsindustries.cryptocurrencymonitor.Constants.CURRENCY_SYMBOL_KEY
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_NAME_KEY
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants.CURRENCY_SYMBOL_KEY
 import com.nfsindustries.cryptocurrencymonitor.service.coinmarket.CoinmarketCapAPI
 
 /**
@@ -27,14 +26,10 @@ import com.nfsindustries.cryptocurrencymonitor.service.coinmarket.CoinmarketCapA
  * in two-pane mode (on tablets) or a [CryptoCurrencyDetailActivity]
  * on handsets.
  */
-/**
- * Mandatory empty constructor for the fragment manager to instantiate the
- * fragment (e.g. upon screen orientation changes).
- */
 class CryptoCurrencyDetailFragment : Fragment() {
 
     /**
-     * The dummy content this fragment is presenting.
+     * The content this fragment is presenting.
      */
     private var mItem: CurrencyListItem? = null
 
@@ -42,7 +37,7 @@ class CryptoCurrencyDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         if (arguments.containsKey(CURRENCY_NAME_KEY) && arguments.containsKey(CURRENCY_SYMBOL_KEY)) {
-            // Load the dummy content specified by the fragment
+            // Load the content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = CurrencyListItem(arguments.getString(CURRENCY_NAME_KEY)!!,

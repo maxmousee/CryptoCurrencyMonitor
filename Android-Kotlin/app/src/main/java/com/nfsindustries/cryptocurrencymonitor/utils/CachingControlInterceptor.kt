@@ -1,8 +1,9 @@
-package com.nfsindustries.cryptocurrencymonitor
+package com.nfsindustries.cryptocurrencymonitor.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.util.Log
+import com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyMonitor
 
 import java.io.IOException
 

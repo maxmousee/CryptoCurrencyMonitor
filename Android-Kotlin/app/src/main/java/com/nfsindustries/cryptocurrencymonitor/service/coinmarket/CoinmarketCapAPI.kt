@@ -1,11 +1,11 @@
 package com.nfsindustries.cryptocurrencymonitor.service.coinmarket
 
 import com.google.gson.GsonBuilder
-import com.nfsindustries.cryptocurrencymonitor.Constants
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants
 import com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyMonitor
 import com.nfsindustries.cryptocurrencymonitor.deserializer.CoinmarketcapDeserializer
 import com.nfsindustries.cryptocurrencymonitor.model.CryptoCurrencyModel
-import com.nfsindustries.cryptocurrencymonitor.CachingControlInterceptor
+import com.nfsindustries.cryptocurrencymonitor.utils.CachingControlInterceptor
 
 import java.io.File
 

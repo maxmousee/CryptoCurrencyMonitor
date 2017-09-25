@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyListActivity"
+    tools:context="com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyListActivity"
     tools:listitem="@layout/cryptocurrency_list_content" />

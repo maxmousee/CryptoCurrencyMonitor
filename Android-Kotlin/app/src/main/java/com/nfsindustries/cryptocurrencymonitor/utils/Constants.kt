@@ -1,4 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor
+package com.nfsindustries.cryptocurrencymonitor.utils
 
 import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 

@@ -1,4 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor
+package com.nfsindustries.cryptocurrencymonitor.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.support.v7.widget.Toolbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.app.ActionBar
 import android.view.MenuItem
-import com.nfsindustries.cryptocurrencymonitor.Constants
-import com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyListActivity
+import com.nfsindustries.cryptocurrencymonitor.utils.Constants
+import com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyDetailFragment
+import com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyListActivity
 import com.nfsindustries.cryptocurrencymonitor.R
 
 /**

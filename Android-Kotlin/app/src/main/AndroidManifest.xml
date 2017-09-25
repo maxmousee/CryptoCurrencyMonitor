@@ -13,7 +13,7 @@
         android:name="com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyMonitor"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CryptoCurrencyListActivity"
+            android:name=".activity.CryptoCurrencyListActivity"
             android:label="@string/list_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -24,14 +24,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CryptoCurrencyDetailActivity"
+            android:name=".activity.CryptoCurrencyDetailActivity"
             android:label="@string/title_cryptocurrency_detail"
-            android:parentActivityName=".CryptoCurrencyListActivity"
+            android:parentActivityName=".activity.CryptoCurrencyListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.nfsindustries.cryptocurrencymonitor.CryptoCurrencyListActivity" />
+                android:value="com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyListActivity" />
         </activity>
     </application>
 
