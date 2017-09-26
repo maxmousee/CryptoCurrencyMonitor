@@ -1,13 +1,16 @@
 package com.nfsindustries.cryptocurrencymonitor
 
 import android.support.test.InstrumentationRegistry
+import android.support.test.espresso.Espresso.onData
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.matcher.ViewMatchers.withText
+import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
+import android.support.test.espresso.matcher.ViewMatchers.*
 import com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyListActivity
+import org.hamcrest.CoreMatchers.startsWith
+import org.hamcrest.Matchers.hasToString
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,14 +26,21 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 class InstrumentedTest {
 
-    @Rule
-    var mActivityRule: ActivityTestRule<CryptoCurrencyListActivity> = ActivityTestRule(CryptoCurrencyListActivity::class.java)
+    @get:Rule
+    val mActivityRule: ActivityTestRule<CryptoCurrencyListActivity> = ActivityTestRule(CryptoCurrencyListActivity::class.java)
 
     @Test
     fun bitcoinIsDisplayedOnView() {
-        onView(withText("bitcoin")).check(matches(isDisplayed()))
-        onView(withText("dogecoin")).check(matches(isDisplayed()))
+        onView(withId(R.id.cryptocurrency_list))
+                .check(matches(hasDescendant(withText("bitcoin"))));
     }
+
+    @Test
+    fun dogecoinIsDisplayedOnView() {
+        onView(withId(R.id.cryptocurrency_list))
+                .check(matches(hasDescendant(withText("dogecoin"))));
+    }
+
 
     @Test
     @Throws(Exception::class)
