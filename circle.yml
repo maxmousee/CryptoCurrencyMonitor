@@ -7,8 +7,8 @@ machine:
 
 dependencies:
     override:
-        - chmod +x Android/gradlew
-        - ./Android/gradlew dependencies 
+        - chmod +x Android-Kotlin/gradlew
+        - ./Android-Kotlin/gradlew dependencies
 
 test:
   override:
@@ -19,7 +19,7 @@ test:
     # wait for it to have booted
     - circle-android wait-for-boot
     # run tests against the emulator. [connectedAndroidTest / test]
-    - (./Android/gradlew):
+    - (./Android-Kotlin/gradlew):
             timeout: 360
     # copy the build outputs to artifacts
     # - cp -r CryptoCurrencyMonitor/Android/build/outputs $CIRCLE_ARTIFACTS
