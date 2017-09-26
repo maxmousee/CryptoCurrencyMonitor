@@ -1,5 +1,5 @@
 import com.nfsindustries.cryptocurrencymonitor.model.CryptoCurrencyModel
-import junit.framework.Assert
+import org.junit.Assert
 import org.junit.Test
 
 /**
