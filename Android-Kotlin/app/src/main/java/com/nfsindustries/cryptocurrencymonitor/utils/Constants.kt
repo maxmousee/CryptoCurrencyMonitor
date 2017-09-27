@@ -9,8 +9,9 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 object Constants {
 
     /**
-     * List of available Crypto Currencies
+     * List of available Crypto Currencies [static list]
      */
+    //TODO get list of available currencies from server
     val CURR_ITEMS = listOf<CurrencyListItem>(CurrencyListItem("bitcoin", "bitcoin"),
             CurrencyListItem("zcash", "ZEC"), CurrencyListItem("dogecoin", "DOGE"),
             CurrencyListItem("ethereum", "ETH"), CurrencyListItem("ripple", "XRP"),
