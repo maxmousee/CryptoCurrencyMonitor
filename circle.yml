@@ -1,6 +1,9 @@
 #
 # Build configuration for Circle CI
 #
+checkout:
+   post:
+        - cp -r Android-Kotlin/licenses/. $ANDROID_HOME/licenses
 
 machine:
     environment:
@@ -31,6 +34,6 @@ test:
             timeout: 600
 
     # copy the build outputs to artifacts
-    - cp -r CryptoCurrencyMonitor/Android/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
-    - cp -r CryptoCurrencyMonitor/Android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
