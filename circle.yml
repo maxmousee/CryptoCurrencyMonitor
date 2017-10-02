@@ -18,10 +18,19 @@ test:
         parallel: true
     # wait for it to have booted
     - circle-android wait-for-boot
-    # run tests against the emulator. [connectedAndroidTest / test]
+    # build project
     - (./Android-Kotlin/gradlew):
             timeout: 360
+
+    # run unit tests against the emulator.
+    - (cd Android-Kotlin && ./gradlew test):
+            timeout: 360
+
+    # run tests against the emulator
+    - (cd Android-Kotlin && ./gradlew connectedAndroidTest):
+            timeout: 360
+
     # copy the build outputs to artifacts
-    # - cp -r CryptoCurrencyMonitor/Android/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r CryptoCurrencyMonitor/Android/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
-    # - cp -r CryptoCurrencyMonitor/Android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    - cp -r CryptoCurrencyMonitor/Android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
