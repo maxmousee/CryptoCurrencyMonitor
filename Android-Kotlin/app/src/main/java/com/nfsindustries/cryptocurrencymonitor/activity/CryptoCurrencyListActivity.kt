@@ -39,7 +39,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
         toolbar.title = title
 
         val recyclerView = findViewById<View>(R.id.cryptocurrency_list)!!
-        setupRecyclerView((recyclerView as RecyclerView)!!)
+        setupRecyclerView(recyclerView as RecyclerView)
 
         if (findViewById<View>(R.id.cryptocurrency_detail_container) != null) {
             // The detail container view will be present only in the
@@ -51,7 +51,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
-        recyclerView.setAdapter(SimpleItemRecyclerViewAdapter(Constants.CURR_ITEMS))
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(Constants.CURR_ITEMS)
     }
 
     inner class SimpleItemRecyclerViewAdapter(private val mValues: List<CurrencyListItem>) :

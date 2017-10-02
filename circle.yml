@@ -16,7 +16,7 @@ dependencies:
 test:
   override:
     # start the emulator
-    - emulator -avd circleci-android24 -no-audio -no-window:
+    - emulator -avd circleci-android25 -no-audio -no-window:
         background: true
         parallel: true
     # wait for it to have booted
@@ -34,6 +34,6 @@ test:
             timeout: 600
 
     # copy the build outputs to artifacts
-    - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs $CIRCLE_ARTIFACTS
+    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
-    - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS

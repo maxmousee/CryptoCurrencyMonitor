@@ -45,9 +45,7 @@ class CryptoCurrencyDetailFragment : Fragment() {
 
             val activity = this.activity
             val appBarLayout = activity.findViewById<View>(R.id.toolbar_layout) as CollapsingToolbarLayout
-            if (appBarLayout != null) {
-                appBarLayout.title = mItem!!.name
-            }
+            appBarLayout.title = mItem!!.name
         }
     }
 
