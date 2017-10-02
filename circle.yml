@@ -24,11 +24,11 @@ test:
 
     # run unit tests against the emulator.
     - (cd Android-Kotlin && ./gradlew test):
-            timeout: 360
+            timeout: 600
 
     # run tests against the emulator
     - (cd Android-Kotlin && ./gradlew connectedAndroidTest):
-            timeout: 360
+            timeout: 600
 
     # copy the build outputs to artifacts
     - cp -r CryptoCurrencyMonitor/Android/build/outputs $CIRCLE_ARTIFACTS
