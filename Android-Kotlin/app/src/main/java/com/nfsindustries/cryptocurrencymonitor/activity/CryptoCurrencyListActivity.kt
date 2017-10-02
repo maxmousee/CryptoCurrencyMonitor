@@ -74,7 +74,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
                     arguments.putString(Constants.ARG_ITEM_ID, holder.mItem!!.name)
 
                     val fragment = CryptoCurrencyDetailFragment()
-                    fragment.setArguments(arguments)
+                    fragment.arguments = arguments
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.cryptocurrency_detail_container, fragment)
                             .commit()

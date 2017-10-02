@@ -2,7 +2,7 @@ package com.nfsindustries.cryptocurrencymonitor.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.TextFormatter
+import com.nfsindustries.cryptocurrencymonitor.utils.TextFormatter
 
 class CryptoCurrencyModel {
 

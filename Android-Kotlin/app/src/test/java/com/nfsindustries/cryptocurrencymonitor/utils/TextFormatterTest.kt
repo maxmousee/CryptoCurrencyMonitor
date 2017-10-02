@@ -1,4 +1,4 @@
-import com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor.TextFormatter
+import com.nfsindustries.cryptocurrencymonitor.utils.TextFormatter
 import org.junit.Test
 import org.junit.Assert.*
 

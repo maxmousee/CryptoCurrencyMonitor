@@ -22,8 +22,8 @@ import com.nfsindustries.cryptocurrencymonitor.service.coinmarket.CoinmarketCapA
 
 /**
  * A fragment representing a single CryptoCurrency detail screen.
- * This fragment is either contained in a [CryptoCurrencyListActivity]
- * in two-pane mode (on tablets) or a [CryptoCurrencyDetailActivity]
+ * This fragment is either contained in a [com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyListActivity]
+ * in two-pane mode (on tablets) or a [com.nfsindustries.cryptocurrencymonitor.activity.CryptoCurrencyDetailActivity]
  * on handsets.
  */
 class CryptoCurrencyDetailFragment : Fragment() {

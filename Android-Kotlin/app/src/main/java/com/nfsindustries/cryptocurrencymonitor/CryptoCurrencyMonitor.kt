@@ -5,7 +5,7 @@ import android.content.Context
 
 /**
  * Class used for Context and support functions
- * Created by maxmo on 21/9/2017.
+ * Created by MaxMouse on 21/9/2017.
  */
 class CryptoCurrencyMonitor : Application() {
 

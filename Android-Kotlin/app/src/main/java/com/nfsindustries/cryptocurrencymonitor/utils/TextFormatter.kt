@@ -1,4 +1,4 @@
-package com.nfsindustries.cryptocurrencymonitor.cryptocurrencymonitor
+package com.nfsindustries.cryptocurrencymonitor.utils
 
 /**
  * Static class used to format text, strings and currencies to display
