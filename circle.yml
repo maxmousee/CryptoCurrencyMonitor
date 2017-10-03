@@ -9,6 +9,15 @@ machine:
     environment:
 
 dependencies:
+    pre:
+        - mkdir -p $HOME/.android/ && touch $HOME/.android/repositories.cfg
+        - echo y | android update sdk --no-ui --all --filter "android-25"
+        - echo y | android update sdk --no-ui --all --filter "android-26"
+        - echo y | android update sdk --no-ui --all --filter "tools"
+        - echo y | android update sdk --no-ui --all --filter "platform-tools
+        - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+        - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2
+
     override:
         - chmod +x Android-Kotlin/gradlew
         - ./Android-Kotlin/gradlew dependencies
@@ -27,12 +36,12 @@ test:
             timeout: 360
 
     # run unit tests
-    - (cd Android-Kotlin && ./gradlew test -PdisablePreDex):
-            timeout: 600
+    - (cd Android-Kotlin && ./gradlew -PdisablePreDex test):
+            timeout: 1200
 
     # run tests against the emulator
-    - (cd Android-Kotlin && ./gradlew connectedAndroidTest -PdisablePreDex):
-            timeout: 600
+    - (cd Android-Kotlin && ./gradlew -PdisablePreDex connectedAndroidTest):
+            timeout: 1200
 
     # copy the build outputs to artifacts
     - cp -r Android-Kotlin/app/build/reports $CIRCLE_ARTIFACTS
