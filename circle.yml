@@ -25,15 +25,15 @@ test:
     - (./Android-Kotlin/gradlew):
             timeout: 360
 
-    # run unit tests against the emulator.
-    - (cd Android-Kotlin && ./gradlew test):
+    # run unit tests
+    - (cd Android-Kotlin && ./gradlew test -PdisablePreDex):
             timeout: 600
 
     # run tests against the emulator
-    - (cd Android-Kotlin && ./gradlew connectedAndroidTest):
+    - (cd Android-Kotlin && ./gradlew connectedAndroidTest -PdisablePreDex):
             timeout: 600
 
     # copy the build outputs to artifacts
-    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs $CIRCLE_ARTIFACTS
+    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/app/build/reports/androidTests $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
-    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    # - cp -r CryptoCurrencyMonitor/Android-Kotlin/app/build/reports/androidTests/* $CIRCLE_TEST_REPORTS
