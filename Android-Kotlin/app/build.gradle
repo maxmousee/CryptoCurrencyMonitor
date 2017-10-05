@@ -13,6 +13,7 @@ android {
         targetSdkVersion 26
         versionCode 7
         versionName "2.0"
+        com.android.ddmlib.DdmPreferences.setTimeOut(120000)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

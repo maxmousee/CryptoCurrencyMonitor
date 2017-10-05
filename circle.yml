@@ -16,22 +16,28 @@ dependencies:
 test:
   override:
     # start the emulator
+    # - emulator -avd circleci-android24 -no-audio -no-window:
     - emulator -avd circleci-android24 -no-audio -memory 1024:
         background: true
         parallel: true
     # wait for it to have booted
     - circle-android wait-for-boot
 
+    # wait for sometime and unlock emulator screen
+    # - sleep 60
+    # - adb shell input keyevent 82
+
+
     # build project
     - (./Android-Kotlin/gradlew -PdisablePreDex):
             timeout: 360
 
     # run unit tests
-    - (cd Android-Kotlin && ./gradlew -PdisablePreDex test):
+    - (cd Android-Kotlin && ./gradlew --configure-on-demand -PdisablePreDex test):
             timeout: 1200
 
     # run tests against the emulator
-    - (cd Android-Kotlin && ./gradlew -PdisablePreDex connectedAndroidTest):
+    - (cd Android-Kotlin && ./gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest):
             timeout: 1200
 
     # copy the build outputs to artifacts
