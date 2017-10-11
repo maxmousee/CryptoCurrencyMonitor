@@ -4,7 +4,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code
+    working_directory: ~/code/Android-Kotlin
     docker:
       - image: circleci/android:api-26-alpha
     parallelism: 4
