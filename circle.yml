@@ -4,7 +4,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code/Android-Kotlin
+    working_directory: ~/code
     docker:
       - image: circleci/android:api-26-alpha
     parallelism: 4
@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: Setup permission
-          command: chmod +x gradlew
+          command: chmod +x Android-Kotlin/gradlew
       - run:
           name: Android SDK Platform 26
           command: if [ ! -d "/usr/local/android-sdk-linux/platforms/android-26" ]; then echo y | android update sdk --no-ui --all --filter "android-26"; fi
@@ -52,12 +52,12 @@ jobs:
             TERM: dumb
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: ./Android-Kotlin/gradlew androidDependencies
           environment:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: ./gradlew --configure-on-demand -PdisablePreDex test
+          command: ./Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
@@ -84,11 +84,11 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: ./gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: ./Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
-          path: app/build/reports
+          path: Android-Kotlin/app/build/reports
           destination: reports
       - store_test_results:
-          path: app/build/test-results
+          path: Android-Kotlin/app/build/test-results
