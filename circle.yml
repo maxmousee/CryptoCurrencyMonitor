@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: Setup permission
-          command: chmod +x Android-Kotlin/gradlew
+          command: chmod +x CryptoCurrencyMonitor/Android-Kotlin/gradlew
       - run:
           name: List files and dir
           command: pwd; ls -lah; cd ..; ls -lah
@@ -55,7 +55,7 @@ jobs:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
+          command: CryptoCurrencyMonitor/Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
@@ -82,11 +82,11 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: CryptoCurrencyMonitor/Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
-          path: Android-Kotlin/app/build/reports
+          path: CryptoCurrencyMonitor/Android-Kotlin/app/build/reports
           destination: reports
       - store_test_results:
-          path: Android-Kotlin/app/build/test-results
+          path: CryptoCurrencyMonitor/Android-Kotlin/app/build/test-results
