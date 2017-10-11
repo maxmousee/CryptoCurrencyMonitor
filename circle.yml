@@ -51,11 +51,6 @@ jobs:
           environment:
             TERM: dumb
       - run:
-          name: Download Dependencies
-          command: ./Android-Kotlin/gradlew androidDependencies
-          environment:
-            TERM: dumb
-      - run:
           name: Run Unit Tests
           command: ./Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
