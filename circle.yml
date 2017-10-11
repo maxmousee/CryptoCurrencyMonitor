@@ -4,7 +4,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/Android-Kotlin
+    working_directory: ~/code
     docker:
       - image: circleci/android:api-26-alpha
     parallelism: 4
@@ -52,7 +52,7 @@ jobs:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: ./Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
+          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
@@ -79,7 +79,7 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: ./Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
