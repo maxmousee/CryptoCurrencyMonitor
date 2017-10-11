@@ -14,10 +14,10 @@ jobs:
       - checkout
       - run:
           name: Setup permission
-          command: chmod +x Android-Kotlin/gradlew
+          command: cd Android-Kotlin; chmod +x gradlew
       - run:
           name: List files and dir
-          command: pwd; ls -lah; cd Android-Kotlin; ls -lah
+          command: pwd; ls -lah;
       - run:
           name: Android SDK Platform 26
           command: if [ ! -d "/usr/local/android-sdk-linux/platforms/android-26" ]; then echo y | android update sdk --no-ui --all --filter "android-26"; fi
@@ -55,7 +55,7 @@ jobs:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: cd Android-Kotlin; gradlew --configure-on-demand -PdisablePreDex test
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
@@ -82,7 +82,7 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: cd Android-Kotlin; gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
