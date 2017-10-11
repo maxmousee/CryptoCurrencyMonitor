@@ -4,7 +4,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/CryptoCurrencyMonitor
+    working_directory: ~/code
     docker:
       - image: circleci/android:api-26-alpha
     parallelism: 4
@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: Setup permission
-          command: chmod +x CryptoCurrencyMonitor/Android-Kotlin/gradlew
+          command: chmod +x Android-Kotlin/gradlew
       - run:
           name: List files and dir
           command: pwd; ls -lah; cd ..; ls -lah
@@ -55,7 +55,7 @@ jobs:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: CryptoCurrencyMonitor/Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
+          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
@@ -82,11 +82,11 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: CryptoCurrencyMonitor/Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
-          path: CryptoCurrencyMonitor/Android-Kotlin/app/build/reports
+          path: Android-Kotlin/app/build/reports
           destination: reports
       - store_test_results:
-          path: CryptoCurrencyMonitor/Android-Kotlin/app/build/test-results
+          path: Android-Kotlin/app/build/test-results
