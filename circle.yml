@@ -55,7 +55,7 @@ jobs:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
+          command: ls -lah; Android-Kotlin/gradlew --configure-on-demand -PdisablePreDex test
           environment:
             TERM: dumb
       - run:
