@@ -4,7 +4,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code
+    working_directory: ~/CryptoCurrencyMonitor
     docker:
       - image: circleci/android:api-26-alpha
     parallelism: 4
@@ -17,7 +17,7 @@ jobs:
           command: chmod +x Android-Kotlin/gradlew
       - run:
           name: List files and dir
-          command: pwd; ls -lah; cd ..; ls -lah
+          command: pwd; ls -lah; cd Android-Kotlin; ls -lah
       - run:
           name: Android SDK Platform 26
           command: if [ ! -d "/usr/local/android-sdk-linux/platforms/android-26" ]; then echo y | android update sdk --no-ui --all --filter "android-26"; fi
