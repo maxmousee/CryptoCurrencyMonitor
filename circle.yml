@@ -51,6 +51,11 @@ jobs:
           environment:
             TERM: dumb
       - run:
+          name: Run Gradle Lint
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex lint
+          environment:
+            TERM: dumb
+      - run:
           name: Run Unit Tests
           command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex test
           environment:
