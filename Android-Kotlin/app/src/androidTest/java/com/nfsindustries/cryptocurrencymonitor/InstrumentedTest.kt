@@ -30,17 +30,34 @@ class InstrumentedTest {
     val mActivityRule: ActivityTestRule<CryptoCurrencyListActivity> = ActivityTestRule(CryptoCurrencyListActivity::class.java)
 
     @Test
-    fun bitcoinIsDisplayedOnView() {
+    fun bitCoinIsDisplayedOnView() {
         onView(withId(R.id.cryptocurrency_list))
                 .check(matches(hasDescendant(withText("bitcoin"))));
     }
 
     @Test
-    fun dogecoinIsDisplayedOnView() {
+    fun dogeCoinIsDisplayedOnView() {
         onView(withId(R.id.cryptocurrency_list))
                 .check(matches(hasDescendant(withText("dogecoin"))));
     }
 
+    @Test
+    fun ethIsDisplayedOnView() {
+        onView(withId(R.id.cryptocurrency_list))
+                .check(matches(hasDescendant(withText("ethereum"))));
+    }
+
+    @Test
+    fun ethClassicIsDisplayedOnView() {
+        onView(withId(R.id.cryptocurrency_list))
+                .check(matches(hasDescendant(withText("ethereum-classic"))));
+    }
+
+    @Test
+    fun zCashIsDisplayedOnView() {
+        onView(withId(R.id.cryptocurrency_list))
+                .check(matches(hasDescendant(withText("zcash"))));
+    }
 
     @Test
     @Throws(Exception::class)
