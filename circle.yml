@@ -52,12 +52,12 @@ jobs:
             TERM: dumb
       - run:
           name: Run Gradle Lint
-          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex lint
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand lint
           environment:
             TERM: dumb
       - run:
           name: Run Unit Tests
-          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex test
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand test
           environment:
             TERM: dumb
       - run:
@@ -84,7 +84,7 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Run Instrumented Tests
-          command: cd Android-Kotlin; ./gradlew --configure-on-demand -PdisablePreDex connectedAndroidTest
+          command: cd Android-Kotlin; ./gradlew --configure-on-demand connectedAndroidTest
           environment:
             TERM: dumb
       - store_artifacts:
