@@ -22,7 +22,7 @@ jobs:
             TERM: dumb
       - run:
           name: Android SDK Build-tools
-          command: if [ ! -d "/usr/local/android-sdk-linux/build-tools/26.0.2" ]; then echo y | android update sdk --no-ui --all --filter "build-tools-27.0.0"; fi
+          command: if [ ! -d "/usr/local/android-sdk-linux/build-tools/27.0.1" ]; then echo y | android update sdk --no-ui --all --filter "build-tools-27.0.1"; fi
           environment:
             TERM: dumb
       - run:
@@ -42,7 +42,7 @@ jobs:
             TERM: dumb
       - run:
           name: Install Android SDK build tools
-          command: echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;27.0.0"
+          command: echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;27.0.1"
           environment:
             TERM: dumb
       - run:
