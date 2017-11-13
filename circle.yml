@@ -6,7 +6,7 @@ jobs:
   build:
     working_directory: ~/CryptoCurrencyMonitor
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: circleci/android:api-27-alpha
     parallelism: 4
     environment:
       JVM_OPTS: -Xmx3200m
@@ -16,8 +16,8 @@ jobs:
           name: Setup permission
           command: cd Android-Kotlin; chmod +x gradlew
       - run:
-          name: Android SDK Platform 26
-          command: if [ ! -d "/usr/local/android-sdk-linux/platforms/android-26" ]; then echo y | android update sdk --no-ui --all --filter "android-26"; fi
+          name: Android SDK Platform 27
+          command: if [ ! -d "/usr/local/android-sdk-linux/platforms/android-27" ]; then echo y | android update sdk --no-ui --all --filter "android-27"; fi
           environment:
             TERM: dumb
       - run:
@@ -31,8 +31,8 @@ jobs:
           environment:
             TERM: dumb
       - run:
-          name: Install Android SDK platforms API Level 26 
-          command: echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-26"
+          name: Install Android SDK platforms API Level 27 
+          command: echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-27"
           environment:
             TERM: dumb
       - run:
