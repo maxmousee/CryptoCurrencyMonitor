@@ -36,21 +36,20 @@ class CryptoCurrencyDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (arguments.containsKey(CURRENCY_NAME_KEY) && arguments.containsKey(CURRENCY_SYMBOL_KEY)) {
+        if (arguments!!.containsKey(CURRENCY_NAME_KEY) && arguments!!.containsKey(CURRENCY_SYMBOL_KEY)) {
             // Load the content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = CurrencyListItem(arguments.getString(CURRENCY_NAME_KEY)!!,
-                    arguments.getString(CURRENCY_SYMBOL_KEY)!!)
+            mItem = CurrencyListItem(arguments!!.getString(CURRENCY_NAME_KEY)!!,
+                    arguments!!.getString(CURRENCY_SYMBOL_KEY)!!)
 
             val activity = this.activity
-            val appBarLayout = activity.findViewById<View>(R.id.toolbar_layout) as CollapsingToolbarLayout
+            val appBarLayout = activity?.findViewById<View>(R.id.toolbar_layout) as CollapsingToolbarLayout
             appBarLayout.title = mItem!!.name
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.cryptocurrency_detail, container, false)
 
         // Show the crypto currency index content as text in a TextView.
