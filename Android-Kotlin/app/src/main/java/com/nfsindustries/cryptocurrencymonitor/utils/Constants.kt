@@ -40,7 +40,7 @@ object Constants {
     /**
      * Cache size
      */
-    val CACHE_SIZE = (10 * 1024 * 1024).toLong() // 10 MiB
+    val CACHE_SIZE = (20 * 1024 * 1024).toLong() // 10 MiB
 
     /**
      * Base URL for coin market cap

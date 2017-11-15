@@ -64,6 +64,7 @@ class CryptoCurrencyDetailFragment : Fragment() {
                         cryptoDetailView.text = response.body()!!.toString()
                     } catch (exc: NullPointerException) {
                         Log.e("GETTING_RESPONSE", exc.toString())
+                        exc.printStackTrace()
                         cryptoDetailView.text = "ERROR GETTING RESPONSE FROM SERVER"
                     }
 
@@ -74,6 +75,7 @@ class CryptoCurrencyDetailFragment : Fragment() {
                     val errorMsg = "Something went wrong, please check your internet connection." + "\n" +
                             "Error message: " + throwable.message
                     cryptoDetailView.text = errorMsg
+                    throwable.printStackTrace()
                 }
             })
         }
