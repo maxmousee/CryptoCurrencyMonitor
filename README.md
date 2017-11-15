@@ -14,6 +14,3 @@ https://play.google.com/store/apps/details?id=com.nfsindustries.cryptocurrencymo
 iOS version:
 Using Swift.
 Release date: TBD
-
-Chrome extension:
-TBD.
