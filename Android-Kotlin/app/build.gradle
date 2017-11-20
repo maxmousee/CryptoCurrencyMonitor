@@ -1,3 +1,5 @@
+import com.android.ddmlib.DdmPreferences
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -10,10 +12,10 @@ android {
     defaultConfig {
         applicationId "com.nfsindustries.cryptocurrencymonitor"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 7
         versionName "2.0"
-        com.android.ddmlib.DdmPreferences.setTimeOut(120000)
+        DdmPreferences.setTimeOut(120000)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
