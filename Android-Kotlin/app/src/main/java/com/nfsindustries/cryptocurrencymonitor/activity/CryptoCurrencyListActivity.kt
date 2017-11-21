@@ -91,9 +91,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
             }
         }
 
-        override fun getItemCount(): Int {
-            return mValues.size
-        }
+        override fun getItemCount() = mValues.size
 
         inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
             val mSymbolView: TextView
@@ -105,9 +103,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
                 mContentView = mView.findViewById<View>(R.id.content) as TextView
             }
 
-            override fun toString(): String {
-                return super.toString() + " '" + mContentView.text + "'"
-            }
+            override fun toString() = super.toString() + " '" + mContentView.text + "'"
         }
     }
 }

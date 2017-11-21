@@ -13,7 +13,6 @@ import okhttp3.Response
 /**
  * Controls network cache for REST calls
  */
-
 class CachingControlInterceptor : Interceptor {
     internal val context = CryptoCurrencyMonitor.appContext
 
@@ -24,30 +23,27 @@ class CachingControlInterceptor : Interceptor {
 
         try {
             val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
             val activeNetwork = cm.activeNetworkInfo
             isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting
         } catch (exception: NullPointerException) {
             Log.e("CHECKING_CONNECTION", exception.toString())
+            exception.printStackTrace()
         }
 
         // Add Cache Control only for GET methods
+        // Should always be true because we only have one request right now
         if (request.method() == "GET") {
-            if (isConnected) {
-                request = request.newBuilder()
-                        .header("Cache-Control", "only-if-cached")
-                        .build()
-            } else {
-                // 4 weeks stale
-                request = request.newBuilder()
-                        .header("Cache-Control", "public, max-stale=2419200")
+            when (isConnected) {
+                true -> request = request.newBuilder().build()
+                false -> request = request.newBuilder()
+                        .header(Constants.CACHE_CTRL, Constants.CACHE_MAX_STALE)
                         .build()
             }
         }
 
         val originalResponse = chain.proceed(request)
         return originalResponse.newBuilder()
-                .header("Cache-Control", "max-age=900")
+                .header(Constants.CACHE_CTRL, Constants.CACHE_MAX_AGE)
                 .build()
     }
 }

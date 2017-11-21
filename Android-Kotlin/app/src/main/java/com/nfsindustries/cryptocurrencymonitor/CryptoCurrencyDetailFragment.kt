@@ -50,7 +50,7 @@ class CryptoCurrencyDetailFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.cryptocurrency_detail, container, false)
+        val rootView = inflater.inflate(R.layout.cryptocurrency_detail, container, false)
 
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {

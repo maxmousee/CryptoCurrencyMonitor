@@ -2,7 +2,7 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 import junit.framework.Assert
 import org.junit.Test
 
-/**
+/** Tests for CryptoCurrency List Item Model class, initialization, getters and setters
  * Created by MaxMouse on 25/9/2017.
  */
 

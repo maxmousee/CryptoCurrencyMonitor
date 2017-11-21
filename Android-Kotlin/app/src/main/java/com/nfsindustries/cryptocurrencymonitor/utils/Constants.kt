@@ -63,6 +63,23 @@ object Constants {
     val BITCOIN = "bitcoin"
 
     /**
+     * Cache Control HTTP Header
+     */
+    val CACHE_CTRL = "Cache-Control"
+
+    /**
+     * Cache max-stale
+     * 4 weeks
+     */
+    val CACHE_MAX_STALE = "public, max-stale=2419200"
+
+
+    /**
+     * Cache max-age
+     */
+    val CACHE_MAX_AGE = "max-age=900"
+
+    /**
      * Currency intent extra key - to get details of a given crypto currency index
      */
     val CURRENCY_NAME_KEY = "currencyName"

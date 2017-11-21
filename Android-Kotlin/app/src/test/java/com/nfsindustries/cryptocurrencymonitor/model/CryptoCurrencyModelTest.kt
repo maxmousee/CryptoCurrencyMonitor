@@ -3,6 +3,7 @@ import org.junit.Assert
 import org.junit.Test
 
 /**
+ * Tests for CryptoCurrency Model class, initialization, getters and setters
  * Created by MaxMouse on 25/9/2017.
  */
 class CryptoCurrencyModelTest {
