@@ -27,7 +27,7 @@ jobs:
             TERM: dumb
       - run:
           name: Android Support Repository
-          command: if [ ! -d "/usr/local/android-sdk-linux/extras/android/m2repository/com/android/support/design/26.1.0" ]; then echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"; fi
+          command: if [ ! -d "/usr/local/android-sdk-linux/extras/android/m2repository/com/android/support/design/27.0.1" ]; then echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"; fi
           environment:
             TERM: dumb
       - run:
