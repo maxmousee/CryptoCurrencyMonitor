@@ -72,7 +72,8 @@ class CryptoCurrencyDetailFragment : Fragment() {
 
                 override fun onFailure(call: Call<CryptoCurrencyModel>, throwable: Throwable) {
                     val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
-                    val errorMsg = getString(R.string.error_loading) + throwable.message
+                    val errorMsg = getString(R.string.error_loading)
+                    Log.e("GETTING_RESPONSE", throwable.toString())
                     cryptoDetailView.text = errorMsg
                     throwable.printStackTrace()
                 }
