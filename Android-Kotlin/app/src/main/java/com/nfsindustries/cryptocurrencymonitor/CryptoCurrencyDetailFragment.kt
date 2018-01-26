@@ -65,15 +65,14 @@ class CryptoCurrencyDetailFragment : Fragment() {
                     } catch (exc: NullPointerException) {
                         Log.e("GETTING_RESPONSE", exc.toString())
                         exc.printStackTrace()
-                        cryptoDetailView.text = "ERROR GETTING RESPONSE FROM SERVER"
+                        cryptoDetailView.text = getString(R.string.error_loading)
                     }
 
                 }
 
                 override fun onFailure(call: Call<CryptoCurrencyModel>, throwable: Throwable) {
                     val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
-                    val errorMsg = "Something went wrong, please check your internet connection." + "\n" +
-                            "Error message: " + throwable.message
+                    val errorMsg = getString(R.string.error_loading) + throwable.message
                     cryptoDetailView.text = errorMsg
                     throwable.printStackTrace()
                 }

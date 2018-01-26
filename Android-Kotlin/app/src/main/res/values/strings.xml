@@ -3,4 +3,5 @@
     <string name="list_title">Crypto Currency List</string>
     <string name="title_cryptocurrency_detail">CryptoCurrency Detail</string>
     <string name="loading">Loading&#8230;</string>
+    <string name="error_loading">Something went wrong, please check your internet connection. Error message: </string>
 </resources>
