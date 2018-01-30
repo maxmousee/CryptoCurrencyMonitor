@@ -13,6 +13,7 @@ object Constants {
      */
     //TODO get list of available currencies from server
     val CURR_ITEMS = listOf<CurrencyListItem>(CurrencyListItem("bitcoin", "bitcoin"),
+            CurrencyListItem("bitcoin-cash", "BCH"),
             CurrencyListItem("zcash", "ZEC"), CurrencyListItem("dogecoin", "DOGE"),
             CurrencyListItem("ethereum", "ETH"), CurrencyListItem("ripple", "XRP"),
             CurrencyListItem("ethereum-classic", "ETC"), CurrencyListItem("litecoin", "LTC"),
