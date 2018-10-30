@@ -1,5 +1,0 @@
-version: "Swift version 3.1.1 (swift-3.1.1-RELEASE)"
-options: "b34ddddd81de10394cf0c01b585f82f1"
-build_time: [558176971, 561621000]
-inputs:
-  "/home/osboxes/repo/CryptoCurrencyMonitor/iOS/Sources/CryptoCurrencyMonitor/CurrencyService.swift": !dirty [558176965, 0]
