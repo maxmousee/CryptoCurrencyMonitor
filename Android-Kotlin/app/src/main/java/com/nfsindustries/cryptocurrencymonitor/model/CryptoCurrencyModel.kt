@@ -50,23 +50,11 @@ class CryptoCurrencyModel {
     var lastUpdated: Long = 0
 
     override fun toString(): String {
-        val displayStrBuilder = StringBuilder("1 ")
-        displayStrBuilder.append(name)
-        displayStrBuilder.append(" to ")
-        displayStrBuilder.append("USD")
-        displayStrBuilder.append("\n\n")
-        displayStrBuilder.append("Last: ")
-        displayStrBuilder.append(TextFormatter.formatCurrency(priceUsd))
-        displayStrBuilder.append("\n\n")
-        displayStrBuilder.append("Change 1h: ")
-        displayStrBuilder.append(percentChange1h)
-        displayStrBuilder.append("%\n\n")
-        displayStrBuilder.append("Change 24h: ")
-        displayStrBuilder.append(percentChange24h)
-        displayStrBuilder.append("%\n\n")
-        displayStrBuilder.append("Change 7d: ")
-        displayStrBuilder.append(percentChange7d)
-        displayStrBuilder.append("%\n\n")
+        val displayStrBuilder = StringBuilder("1 " + name + " to USD\n\n")
+        displayStrBuilder.append("Last: " + TextFormatter.formatCurrency(priceUsd) + "\n\n")
+        displayStrBuilder.append("Change 1h: " + percentChange1h + "%\n\n")
+        displayStrBuilder.append("Change 24h: " + percentChange24h + "%\n\n")
+        displayStrBuilder.append("Change 7d: " + percentChange7d + "%\n\n")
         return displayStrBuilder.toString()
     }
 
