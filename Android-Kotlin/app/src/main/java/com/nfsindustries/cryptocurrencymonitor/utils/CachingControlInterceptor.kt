@@ -20,6 +20,12 @@ class CachingControlInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
         var isConnected = false
+        // Cache Control HTTP Header
+        val CACHE_CTRL = "Cache-Control"
+
+        // Cache max-stale 4 weeks
+        val CACHE_MAX_STALE = "public, max-stale=2419200"
+        val CACHE_MAX_AGE = "max-age=900"
 
         try {
             val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -36,14 +42,14 @@ class CachingControlInterceptor : Interceptor {
             when (isConnected) {
                 true -> request = request.newBuilder().build()
                 false -> request = request.newBuilder()
-                        .header(Constants.CACHE_CTRL, Constants.CACHE_MAX_STALE)
+                        .header(CACHE_CTRL, CACHE_MAX_STALE)
                         .build()
             }
         }
 
         val originalResponse = chain.proceed(request)
         return originalResponse.newBuilder()
-                .header(Constants.CACHE_CTRL, Constants.CACHE_MAX_AGE)
+                .header(CACHE_CTRL, CACHE_MAX_AGE)
                 .build()
     }
 }
