@@ -38,47 +38,6 @@ object Constants {
             CurrencyListItem("veritaseum", "VERI"), CurrencyListItem("bitcoindark", "BTCD"),
             CurrencyListItem("steem", "STEEM"), CurrencyListItem("siacoin", "SC"))
 
-    /**
-     * Cache size
-     */
-    val CACHE_SIZE = (20 * 1024 * 1024).toLong() // 10 MiB
-
-    /**
-     * Base URL for coin market cap
-     */
-    val COIN_MARKETCAP_BASE_URL = "https://api.coinmarketcap.com/v1/"
-
-    /**
-     * Path to convert bitcoin
-     */
-    val BITCOIN_CONVERT = "tobtc"
-
-    /**
-     * Path to convert bitcoin
-     */
-    val TICKER = "ticker"
-
-    /**
-     * Bitcoin intent extra - to get details of bitcoin index
-     */
-    val BITCOIN = "bitcoin"
-
-    /**
-     * Cache Control HTTP Header
-     */
-    val CACHE_CTRL = "Cache-Control"
-
-    /**
-     * Cache max-stale
-     * 4 weeks
-     */
-    val CACHE_MAX_STALE = "public, max-stale=2419200"
-
-
-    /**
-     * Cache max-age
-     */
-    val CACHE_MAX_AGE = "max-age=900"
 
     /**
      * Currency intent extra key - to get details of a given crypto currency index
