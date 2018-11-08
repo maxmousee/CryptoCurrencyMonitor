@@ -62,14 +62,16 @@ class CryptoCurrencyDetailFragment : Fragment() {
 
     private fun createServiceCall(coinmarketCapService: CoinmarketCapAPI, rootView: View) {
         val call = coinmarketCapService.getCurrentIndex(mItem!!.name)
+        setCallback(call, rootView)
+    }
 
+    private fun setCallback(call: Call<CryptoCurrencyModel>, rootView: View) {
         call.enqueue(object : Callback<CryptoCurrencyModel> {
             override fun onResponse(call: Call<CryptoCurrencyModel>, response: Response<CryptoCurrencyModel>) {
                 val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
                 try {
                     cryptoDetailView.text = response.body()!!.toString()
                 } catch (exc: NullPointerException) {
-                    Log.e("GETTING_RESPONSE", exc.toString())
                     cryptoDetailView.text = getString(R.string.error_loading)
                 }
 
