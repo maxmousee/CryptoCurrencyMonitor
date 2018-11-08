@@ -55,30 +55,32 @@ class CryptoCurrencyDetailFragment : Fragment() {
         // Show the crypto currency index content as text in a TextView.
         if (mItem != null) {
             val coinmarketCapService = CoinmarketCapAPI.retrofit.create(CoinmarketCapAPI::class.java)
-            val call = coinmarketCapService.getCurrentIndex(mItem!!.name)
-
-            call.enqueue(object : Callback<CryptoCurrencyModel> {
-                override fun onResponse(call: Call<CryptoCurrencyModel>, response: Response<CryptoCurrencyModel>) {
-                    val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
-                    try {
-                        cryptoDetailView.text = response.body()!!.toString()
-                    } catch (exc: NullPointerException) {
-                        Log.e("GETTING_RESPONSE", exc.toString())
-                        exc.printStackTrace()
-                        cryptoDetailView.text = getString(R.string.error_loading)
-                    }
-
-                }
-
-                override fun onFailure(call: Call<CryptoCurrencyModel>, throwable: Throwable) {
-                    val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
-                    val errorMsg = getString(R.string.error_loading)
-                    Log.e("GETTING_RESPONSE", throwable.toString())
-                    cryptoDetailView.text = errorMsg
-                    throwable.printStackTrace()
-                }
-            })
+            createServiceCall(coinmarketCapService, rootView)
         }
         return rootView
+    }
+
+    private fun createServiceCall(coinmarketCapService: CoinmarketCapAPI, rootView: View) {
+        val call = coinmarketCapService.getCurrentIndex(mItem!!.name)
+
+        call.enqueue(object : Callback<CryptoCurrencyModel> {
+            override fun onResponse(call: Call<CryptoCurrencyModel>, response: Response<CryptoCurrencyModel>) {
+                val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
+                try {
+                    cryptoDetailView.text = response.body()!!.toString()
+                } catch (exc: NullPointerException) {
+                    Log.e("GETTING_RESPONSE", exc.toString())
+                    cryptoDetailView.text = getString(R.string.error_loading)
+                }
+
+            }
+
+            override fun onFailure(call: Call<CryptoCurrencyModel>, throwable: Throwable) {
+                val cryptoDetailView = rootView.findViewById<TextView>(R.id.cryptocurrency_detail) as TextView
+                val errorMsg = getString(R.string.error_loading)
+                Log.e("GETTING_RESPONSE", throwable.toString())
+                cryptoDetailView.text = errorMsg
+            }
+        })
     }
 }
