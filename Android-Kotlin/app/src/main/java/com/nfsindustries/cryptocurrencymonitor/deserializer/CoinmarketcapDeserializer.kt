@@ -13,7 +13,6 @@ import java.lang.reflect.Type
  * Deserializer for CoinMarketCap API, used to convert data from JSON
  * It uses Google's GSON parsing library
  * For now, it only converts USD [United States Dollar]
- * TODO add support for other countries' currencies
  */
 
 class CoinmarketcapDeserializer : JsonDeserializer<CryptoCurrencyModel> {

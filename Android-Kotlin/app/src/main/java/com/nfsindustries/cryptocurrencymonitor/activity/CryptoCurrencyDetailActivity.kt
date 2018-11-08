@@ -61,7 +61,6 @@ class CryptoCurrencyDetailActivity : AppCompatActivity() {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            //TODO FIX THIS
             navigateUpTo(Intent(this.applicationContext, CryptoCurrencyListActivity::class.java))
             return true
         }
