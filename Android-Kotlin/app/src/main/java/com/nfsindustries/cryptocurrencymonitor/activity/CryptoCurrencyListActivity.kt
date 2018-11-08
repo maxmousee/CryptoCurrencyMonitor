@@ -25,6 +25,12 @@ import com.nfsindustries.cryptocurrencymonitor.model.CurrencyListItem
 class CryptoCurrencyListActivity : AppCompatActivity() {
 
     /**
+     * The fragment argument representing the item ID that this fragment
+     * represents.
+     */
+    val ARG_ITEM_ID = "item_id"
+
+    /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
      */
@@ -71,7 +77,7 @@ class CryptoCurrencyListActivity : AppCompatActivity() {
             holder.mView.setOnClickListener { v ->
                 if (mTwoPane) {
                     val arguments = Bundle()
-                    arguments.putString(Constants.ARG_ITEM_ID, holder.mItem!!.name)
+                    arguments.putString(ARG_ITEM_ID, holder.mItem!!.name)
 
                     val fragment = CryptoCurrencyDetailFragment()
                     fragment.arguments = arguments

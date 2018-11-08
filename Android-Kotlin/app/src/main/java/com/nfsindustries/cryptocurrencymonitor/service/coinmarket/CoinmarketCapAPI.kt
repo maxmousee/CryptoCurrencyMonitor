@@ -29,8 +29,6 @@ interface CoinmarketCapAPI {
     companion object {
 
         val CACHE_SIZE = (20 * 1024 * 1024).toLong() // 20 MiB
-        val COIN_MARKETCAP_BASE_URL = "https://api.coinmarketcap.com/v1/"
-        val TICKER = "ticker"
         val context = CryptoCurrencyMonitor.appContext
         val cache = Cache(File(context?.getCacheDir(), "http"), CACHE_SIZE)
         val networkInterceptor = CachingControlInterceptor()
@@ -39,13 +37,11 @@ interface CoinmarketCapAPI {
 
         val client = OkHttpClient.Builder().cache(cache).addNetworkInterceptor(networkInterceptor).build()
 
-        val gson = GsonBuilder()
-                .setLenient()
-                .registerTypeAdapter(CryptoCurrencyModel::class.java, CoinmarketcapDeserializer())
-                .create()
+        val gson = GsonBuilder().setLenient()
+                .registerTypeAdapter(CryptoCurrencyModel::class.java, CoinmarketcapDeserializer()).create()
 
         val retrofit = Retrofit.Builder()
-                .baseUrl(COIN_MARKETCAP_BASE_URL + TICKER + "/")
+                .baseUrl("https://api.coinmarketcap.com/v1/" + "ticker/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
